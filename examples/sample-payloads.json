@@ -1,0 +1,126 @@
+{
+  "webhook_requests": [
+    {
+      "description": "Electronics buyer - Canada",
+      "payload": {
+        "demand": "Looking for a Chinese manufacturer of wireless Bluetooth earbuds. Need 1000 units minimum, CE and FCC certified, custom logo and packaging, budget USD 12-18 per unit. Shipping to Toronto, Canada.",
+        "contact_email": "purchasing@techretail.ca",
+        "source": "api",
+        "category": "消费电子",
+        "budget_usd": 18000
+      }
+    },
+    {
+      "description": "Home goods importer - UK",
+      "payload": {
+        "demand": "UK importer looking for bamboo kitchenware sets: cutting boards, utensils, serving trays. Minimum 500 sets per SKU. FSC certified, EU food safety compliant. Wholesale price target GBP 8-15 per set.",
+        "contact_email": "imports@homestyle.co.uk",
+        "source": "web",
+        "category": "家居家具"
+      }
+    },
+    {
+      "description": "Toy distributor - Australia",
+      "payload": {
+        "demand": "Australian wholesale toy distributor sourcing STEM educational toys for ages 6-12. EN71 and AS/NZS certified. Minimum 200 units per item, 10 SKUs. Budget AUD 15-40 per unit.",
+        "contact_email": "buy@toysdownunder.com.au",
+        "contact_wechat": "toysau_buying",
+        "source": "telegram",
+        "category": "玩具礼品",
+        "budget_usd": 50000
+      }
+    },
+    {
+      "description": "Apparel OEM - Southeast Asia buyer",
+      "payload": {
+        "demand": "Singapore fashion brand sourcing OEM streetwear manufacturer. 300 pieces per style, 5 styles. Cotton/polyester blend, custom labels, sample within 2 weeks. Target FOB price $8-15 per piece.",
+        "contact_email": "design@fashionsg.com",
+        "source": "api",
+        "category": "服装服饰",
+        "budget_usd": 22500
+      }
+    },
+    {
+      "description": "Chinese supplier looking for buyer (SUPPLY side demand)",
+      "payload": {
+        "demand": "需要寻找北美宠物用品进口商。浙江宠物玩具工厂，CE认证，MOQ 300件，OEM定制。产品：猫抓板、互动玩具、磨牙棒。年产能100万件。",
+        "contact_email": "export@zhepet.cn",
+        "contact_wechat": "zhepet_alice",
+        "source": "api",
+        "category": "宠物用品"
+      }
+    }
+  ],
+  "sample_demand_intents": [
+    {
+      "intent_id": "INTENT_A1B2C3D4",
+      "intent_type": "DEMAND",
+      "category": "消费电子",
+      "summary": "1000 units wireless earbuds CE/FCC",
+      "status": "matched",
+      "estimated_value_usd": 18000,
+      "scarcity_level": "MEDIUM",
+      "created_at": 1741910400,
+      "payload": {
+        "core_need": "1000 units wireless Bluetooth earbuds, CE and FCC certified, custom logo, for Canadian retail market",
+        "category": "消费电子",
+        "intent_type": "DEMAND",
+        "role": "demand",
+        "contact_email": "purchasing@techretail.ca",
+        "budget_usd": 18000,
+        "quantity": 1000,
+        "destination_market": "Canada",
+        "certifications": ["CE", "FCC"],
+        "source": "api",
+        "summary": "1000 units wireless earbuds CE/FCC",
+        "summary_en": "1000 units wireless Bluetooth earbuds, CE/FCC certified, custom logo, Canada retail"
+      }
+    }
+  ],
+  "sample_supply_intents": [
+    {
+      "intent_id": "INTENT_B3C4D5E6",
+      "intent_type": "SUPPLY",
+      "category": "消费电子",
+      "summary": "Shenzhen wireless audio OEM/ODM",
+      "status": "matched",
+      "estimated_value_usd": 0,
+      "scarcity_level": "LOW",
+      "created_at": 1741900000,
+      "payload": {
+        "core_need": "[Shenzhen AudioTech Co.] OEM/ODM wireless earbuds and headphones manufacturer, MOQ 300 units, CE/FCC/RoHS certified, exports to North America and Europe",
+        "category": "消费电子",
+        "intent_type": "SUPPLY",
+        "role": "supply",
+        "contact_email": "sales@auditech-sz.com",
+        "contact_phone": "+86-755-1234-5678",
+        "contact_wechat": "audiotech_sales",
+        "company": "Shenzhen AudioTech Co.",
+        "source_url": "https://auditech-sz.com",
+        "supply_type": "manufacturer",
+        "moq": 300,
+        "certifications": ["CE", "FCC", "RoHS"],
+        "export_markets": ["North America", "Europe", "Australia"],
+        "source": "CRAWLER_SUPPLY",
+        "summary": "Shenzhen wireless audio OEM/ODM",
+        "summary_en": "Shenzhen wireless audio OEM/ODM manufacturer, MOQ 300, CE/FCC certified, exports globally"
+      }
+    }
+  ],
+  "sample_matches": [
+    {
+      "match_id": "MATCH_X1Y2Z3W4",
+      "demand_intent_id": "INTENT_A1B2C3D4",
+      "supply_intent_id": "INTENT_B3C4D5E6",
+      "score": 0.91,
+      "score_breakdown": {
+        "category": 0.30,
+        "semantic": 0.38,
+        "structural": 0.16,
+        "supplier_quality": 0.07
+      },
+      "matched_at": 1741910500,
+      "status": "notified"
+    }
+  ]
+}
