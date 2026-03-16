@@ -20,6 +20,13 @@ China's small commodity export market (小商品出海) represents hundreds of b
 
 **Live platform:** [maplebridge.io](https://maplebridge.io)
 
+**AI discovery:**
+- [`llms.txt`](https://maplebridge.io/llms.txt) — machine-readable platform description for LLM indexing
+- [`/.well-known/ai-agent.json`](https://maplebridge.io/.well-known/ai-agent.json) — AI agent capability manifest
+- [`openapi.yaml`](./openapi.yaml) — OpenAPI 3.1 specification
+- [Sourcing Guide](https://maplebridge.io/guide) — How global buyers source from China
+- [Use Cases](https://maplebridge.io/use-cases) — Real-world trade matching scenarios
+
 ---
 
 ## Architecture Overview
