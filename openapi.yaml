@@ -1,0 +1,305 @@
+openapi: "3.1.0"
+info:
+  title: MapleBridge Trade Matching API
+  version: "1.0"
+  description: |
+    AI-powered B2B trade matching platform connecting global buyers with verified
+    Chinese manufacturers and small commodity exporters.
+
+    Buyers post procurement demands via webhook; the platform's LLM engine
+    semantically matches suppliers from Yiwu, Guangzhou, Shenzhen, Dongguan,
+    Ningbo, and Hangzhou — then sends automated email introductions to both parties.
+
+    **Free for buyers. No API key required for webhook submission.**
+
+    Open-source documentation: https://github.com/maplebridge-io/maplebridge-open
+  contact:
+    url: https://maplebridge.io
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://maplebridge.io/api/v1
+    description: Production
+
+tags:
+  - name: Matching
+    description: Post demands and retrieve matched suppliers
+  - name: Intents
+    description: Query intent records
+  - name: System
+    description: Health and status
+
+paths:
+  /webhook/manus:
+    post:
+      operationId: postDemand
+      summary: Post a procurement demand
+      description: |
+        Submit a buyer procurement demand. The platform will:
+        1. AI-parse the demand into structured categories
+        2. Semantically match against the supplier database
+        3. Send email introductions to matched suppliers
+        4. Return a curated shortlist to the buyer
+
+        Supports Chinese and English. AI routing automatically selects
+        GPT-4o-mini (English) or Qwen Plus (Chinese) based on context.
+      tags: [Matching]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DemandRequest"
+            examples:
+              electronics_buyer:
+                summary: Electronics buyer (English)
+                value:
+                  node_id: "BUYER_001"
+                  contact_email: "buyer@example.com"
+                  contact_name: "John Smith"
+                  company: "Acme Imports"
+                  country: "US"
+                  demand_category: "consumer electronics"
+                  demand_description: "Looking for 500 units of Bluetooth earbuds under $8 FOB Shenzhen, prefer factories with Amazon FBA experience"
+              yiwu_commodity_buyer:
+                summary: Small commodity buyer (Chinese)
+                value:
+                  node_id: "BUYER_002"
+                  contact_email: "buyer@example.com"
+                  country: "CA"
+                  demand_description: "寻找义乌圣诞装饰品批发商，MOQ 1000件，预算FOB $2以内"
+      responses:
+        "200":
+          description: Demand received and matching initiated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemandResponse"
+        "422":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /intents:
+    get:
+      operationId: listIntents
+      summary: List recent intents
+      description: Returns paginated list of recent demand and supply intents.
+      tags: [Intents]
+      parameters:
+        - name: intent_type
+          in: query
+          schema:
+            type: string
+            enum: [DEMAND, SUPPLY]
+          description: Filter by type
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        "200":
+          description: List of intents
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intents:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Intent"
+                  total:
+                    type: integer
+
+  /intents/{intent_id}:
+    get:
+      operationId: getIntent
+      summary: Get a single intent
+      tags: [Intents]
+      parameters:
+        - name: intent_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "INTENT_A1B2C3D4"
+      responses:
+        "200":
+          description: Intent details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Intent"
+        "404":
+          description: Intent not found
+
+  /intents/{intent_id}/matches:
+    get:
+      operationId: getMatches
+      summary: Get matches for an intent
+      description: Returns supplier matches for a demand intent, ordered by score.
+      tags: [Matching]
+      parameters:
+        - name: intent_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Matched intents with scores
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  matches:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Match"
+
+  /health:
+    get:
+      operationId: healthCheck
+      summary: Platform health check
+      tags: [System]
+      responses:
+        "200":
+          description: Platform is operational
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  version:
+                    type: string
+                  timestamp:
+                    type: number
+
+components:
+  schemas:
+    DemandRequest:
+      type: object
+      required:
+        - node_id
+        - demand_description
+      properties:
+        node_id:
+          type: string
+          description: Unique identifier for the buyer node
+          example: "BUYER_US_001"
+        contact_email:
+          type: string
+          format: email
+          description: Buyer email for receiving matched supplier introductions
+        contact_name:
+          type: string
+        company:
+          type: string
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code
+          example: "US"
+        demand_category:
+          type: string
+          description: Product category hint (optional, AI will auto-classify)
+          example: "consumer electronics"
+        demand_description:
+          type: string
+          description: |
+            Free-text procurement requirement. Include: product type, quantity,
+            budget, specifications, delivery terms. Chinese or English accepted.
+          example: "Looking for 1000 units LED desk lamps, warm white, US plug, under $12 FOB"
+        telegram_chat_id:
+          type: string
+          description: Optional Telegram chat ID for push notifications
+
+    DemandResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [received, error]
+        intent_id:
+          type: string
+          description: Unique intent ID for tracking
+          example: "INTENT_A1B2C3D4"
+        message:
+          type: string
+        matched_count:
+          type: integer
+          description: Number of suppliers matched (async, may be 0 initially)
+
+    Intent:
+      type: object
+      properties:
+        intent_id:
+          type: string
+          example: "INTENT_A1B2C3D4"
+        intent_type:
+          type: string
+          enum: [DEMAND, SUPPLY]
+        status:
+          type: string
+          enum: [pending, matched]
+        category:
+          type: string
+          example: "消费电子"
+        summary:
+          type: string
+          description: AI-generated summary of the intent
+        summary_en:
+          type: string
+          description: English summary
+        estimated_value_usd:
+          type: number
+        source:
+          type: string
+          enum: [MANUS_WEBHOOK, BOT_SCRAPED, CRAWLER_SUPPLY, TELEGRAM]
+        created_at:
+          type: number
+          description: Unix timestamp
+
+    Match:
+      type: object
+      properties:
+        demand_intent_id:
+          type: string
+        supply_intent_id:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 10
+          description: |
+            Semantic match score (0-10). Score ≥ 7 triggers email introductions.
+            Breakdown: category 30%, semantic similarity 40%,
+            structural fit 20%, supplier quality 10%
+        notified_at:
+          type: number
+          description: Unix timestamp when email introductions were sent
+        demand_email:
+          type: string
+        supply_email:
+          type: string
+
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
