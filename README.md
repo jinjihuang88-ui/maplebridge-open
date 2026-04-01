@@ -26,6 +26,10 @@ China's small commodity export market (小商品出海) represents hundreds of b
 - [`openapi.yaml`](./openapi.yaml) — OpenAPI 3.1 specification
 - [Sourcing Guide](https://maplebridge.io/guide) — How global buyers source from China
 - [Use Cases](https://maplebridge.io/use-cases) — Real-world trade matching scenarios
+- [AI Supplier Matching](https://maplebridge.io/blog-ai-supplier-matching) — Why AI matching outperforms directory-first sourcing
+- [Verified Chinese Manufacturers](https://maplebridge.io/blog-verified-chinese-manufacturers) — Practical checks before first production orders
+- [Small MOQ China Supplier Guide](https://maplebridge.io/blog-china-supplier-small-batch-moq) — Low-MOQ sourcing for North America buyers
+- [Alibaba Alternative for North America](https://maplebridge.io/alibaba-alternative-for-north-america) — Matching-first workflow for buyers who want less manual filtering
 
 ---
 
