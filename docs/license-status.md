@@ -1,19 +1,18 @@
 # License Status
 
-No open-source license has been selected yet.
+This repository now uses **Apache-2.0**.
 
-Before publishing this repository publicly on GitHub, choose an explicit license.
+That choice matches the current boundary:
 
-Until then, keep the repository private or unpublished.
+- public schema, protocol, framework, and interface docs stay open
+- the live MapleBridge marketplace, `/app`, production data, and private orchestration remain private
+- hosted and commercial layers can continue to evolve outside this repository
 
-Typical options to evaluate:
+Why Apache-2.0 here:
 
-- Apache-2.0
-- MIT
-- source-available custom license
+- permissive enough for broad reuse
+- clear enough for commercial adopters
+- includes an explicit patent grant
+- fits an interface-first repo better than a source-available restriction
 
-The license decision should reflect the intended business model:
-
-- standard/protocol open
-- production marketplace private
-- hosted/commercial layer retained
+This license applies to the contents of this repository only. It does not expand access to the production MapleBridge application or its private infrastructure.

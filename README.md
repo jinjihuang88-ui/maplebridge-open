@@ -125,17 +125,9 @@ See:
 
 ## Status
 
-This repository is currently an **interface-first scaffold** prepared for GitHub publication.
+This repository is currently an **interface-first public scaffold** with an Apache-2.0 license.
 
-Before publishing publicly, choose:
-
-- repository name
-- short description
-- topics
-- license
-- contribution policy
-
-Suggested launch copy is in:
+Suggested launch copy and positioning notes are in:
 
 - [docs/github-metadata.md](docs/github-metadata.md)
 - [docs/license-status.md](docs/license-status.md)
