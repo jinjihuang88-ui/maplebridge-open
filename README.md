@@ -117,6 +117,8 @@ See:
 - [docs/positioning.md](docs/positioning.md)
 - [docs/why-a2a.md](docs/why-a2a.md)
 - [docs/security-boundary.md](docs/security-boundary.md)
+- [docs/release-process.md](docs/release-process.md)
+- [docs/partner-integration-guide.md](docs/partner-integration-guide.md)
 - [docs/github-metadata.md](docs/github-metadata.md)
 - [ROADMAP.md](ROADMAP.md)
 - [CHANGELOG.md](CHANGELOG.md)
@@ -142,6 +144,8 @@ Suggested launch copy and positioning notes are in:
 - roadmap: [ROADMAP.md](ROADMAP.md)
 - changelog: [CHANGELOG.md](CHANGELOG.md)
 - contributions: [CONTRIBUTING.md](CONTRIBUTING.md)
+- release process: [docs/release-process.md](docs/release-process.md)
+- partner guide: [docs/partner-integration-guide.md](docs/partner-integration-guide.md)
 
 ## Production Relationship
 
