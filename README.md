@@ -25,6 +25,7 @@ Canonical public pages:
 - Crawler Connectors: [https://maplebridge.io/open/crawler-connectors](https://maplebridge.io/open/crawler-connectors)
 - Notification Interface: [https://maplebridge.io/open/notification-interface](https://maplebridge.io/open/notification-interface)
 - Local Demo UI Boundary: [https://maplebridge.io/open/local-demo-ui](https://maplebridge.io/open/local-demo-ui)
+- Why A2A: [https://maplebridge.io/open/why-a2a](https://maplebridge.io/open/why-a2a)
 
 ## Why This Exists
 
@@ -114,6 +115,7 @@ maplebridge-open/
 See:
 
 - [docs/positioning.md](docs/positioning.md)
+- [docs/why-a2a.md](docs/why-a2a.md)
 - [docs/security-boundary.md](docs/security-boundary.md)
 - [docs/github-metadata.md](docs/github-metadata.md)
 
