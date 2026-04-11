@@ -118,6 +118,9 @@ See:
 - [docs/why-a2a.md](docs/why-a2a.md)
 - [docs/security-boundary.md](docs/security-boundary.md)
 - [docs/github-metadata.md](docs/github-metadata.md)
+- [ROADMAP.md](ROADMAP.md)
+- [CHANGELOG.md](CHANGELOG.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Recommended First Read
 
@@ -133,6 +136,12 @@ Suggested launch copy and positioning notes are in:
 
 - [docs/github-metadata.md](docs/github-metadata.md)
 - [docs/license-status.md](docs/license-status.md)
+
+## Operating Notes
+
+- roadmap: [ROADMAP.md](ROADMAP.md)
+- changelog: [CHANGELOG.md](CHANGELOG.md)
+- contributions: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Production Relationship
 
