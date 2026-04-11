@@ -1,166 +1,150 @@
-# MapleBridge Open — AI-Powered Global Trade Matching
+# MapleBridge Open
 
-**MapleBridge** is an AI-powered B2B trade matching platform that connects global buyers with Chinese manufacturers and small commodity exporters. This repository contains public API documentation, integration guides, data schemas, and example code.
+**Public protocol and framework layer for AI-assisted bilateral B2B matching.**
 
-> Core matching algorithm is proprietary and not included here. This repo covers the public API surface, webhook integration, and data models.
+**A2A-ready buyer-agent + seller-agent contracts for sourcing and matching workflows.**
 
----
+MapleBridge Open defines the reusable contract surface behind a workflow where:
 
-## What is MapleBridge?
+- a **buyer agent** normalizes demand
+- a **seller agent** normalizes supply
+- a shared **match engine** scores bilateral fit
+- **connector** layers ingest external signals
+- **notification** events trigger introductions, reminders, and review handoffs
 
-China's small commodity export market (小商品出海) represents hundreds of billions of USD in annual cross-border B2B trade. Traditional matching is slow, opaque, and relationship-dependent. MapleBridge uses LLM semantic matching to understand buyer requirements in natural language and surface the most relevant Chinese suppliers automatically.
+In this repository, `A2A` means an agent-to-agent workflow where specialized buyer-side and seller-side agents exchange normalized state through a shared matching and review layer.
 
-**Key capabilities:**
+This repository is intentionally separate from the live MapleBridge production app at [https://maplebridge.io/app](https://maplebridge.io/app).
 
-- LLM semantic intent matching (not keyword search)
-- Supports global buyers: North America, Europe, Southeast Asia, Middle East, and beyond
-- Covers Chinese export manufacturers: Yiwu, Guangzhou, Shenzhen, Dongguan, and other major hubs
-- Categories: consumer electronics, home goods, furniture, apparel, toys, pet products, beauty/cosmetics, hardware, and more
-- Free for buyers; suppliers pay for verified leads
+Canonical public pages:
 
-**Live platform:** [maplebridge.io](https://maplebridge.io)
+- Overview: [https://maplebridge.io/open/](https://maplebridge.io/open/)
+- Intent Schema: [https://maplebridge.io/open/intent-schema](https://maplebridge.io/open/intent-schema)
+- Agent Protocol: [https://maplebridge.io/open/agent-protocol](https://maplebridge.io/open/agent-protocol)
+- Match Engine: [https://maplebridge.io/open/match-engine](https://maplebridge.io/open/match-engine)
+- Crawler Connectors: [https://maplebridge.io/open/crawler-connectors](https://maplebridge.io/open/crawler-connectors)
+- Notification Interface: [https://maplebridge.io/open/notification-interface](https://maplebridge.io/open/notification-interface)
+- Local Demo UI Boundary: [https://maplebridge.io/open/local-demo-ui](https://maplebridge.io/open/local-demo-ui)
 
-**AI discovery:**
-- [`llms.txt`](https://maplebridge.io/llms.txt) — machine-readable platform description for LLM indexing
-- [`/.well-known/ai-agent.json`](https://maplebridge.io/.well-known/ai-agent.json) — AI agent capability manifest
-- [`openapi.yaml`](./openapi.yaml) — OpenAPI 3.1 specification
-- [Sourcing Guide](https://maplebridge.io/guide) — How global buyers source from China
-- [Use Cases](https://maplebridge.io/use-cases) — Real-world trade matching scenarios
-- [AI Supplier Matching](https://maplebridge.io/blog-ai-supplier-matching) — Why AI matching outperforms directory-first sourcing
-- [Verified Chinese Manufacturers](https://maplebridge.io/blog-verified-chinese-manufacturers) — Practical checks before first production orders
-- [Small MOQ China Supplier Guide](https://maplebridge.io/blog-china-supplier-small-batch-moq) — Low-MOQ sourcing for North America buyers
-- [Alibaba Alternative for North America](https://maplebridge.io/alibaba-alternative-for-north-america) — Matching-first workflow for buyers who want less manual filtering
+## Why This Exists
 
----
+Most B2B sourcing systems publish either:
 
-## Architecture Overview
+- a supplier directory
+- a lead capture form
+- a CRM workflow
 
-```
-Buyer submits requirement (natural language)
-        ↓
-  Intent Parser (LLM)
-        ↓
-  Semantic Vector Index
-        ↓
-  Supplier Intent Store
-        ↓
-  Match Scoring & Ranking
-        ↓
-  Notification (Email / Webhook)
-```
+MapleBridge Open focuses on a different layer:
 
-The platform maintains a dual-sided intent graph:
+**bilateral matching infrastructure**
 
-| Side | Description |
-|------|-------------|
-| **DEMAND** | Buyer requirements: product spec, quantity, budget, destination market |
-| **SUPPLY** | Supplier capabilities: product categories, MOQ, certifications, export experience |
+That means publishing the public contracts for:
 
----
+1. how buyer demand should be normalized
+2. how supplier capability should be normalized
+3. how both sides should flow into a shared scoring engine
+4. where review, trust, and notifications should sit in the system
 
-## Repository Contents
+## What This Repository Contains
 
-| Path | Description |
-|------|-------------|
-| [`docs/api.md`](docs/api.md) | REST API reference (webhook, intent endpoints) |
-| [`docs/matching-flow.md`](docs/matching-flow.md) | How LLM semantic matching works (conceptual) |
-| [`docs/webhook.md`](docs/webhook.md) | Webhook integration guide for buyer demand ingestion |
-| [`docs/data-schema.md`](docs/data-schema.md) | Intent data structures and field definitions |
-| [`examples/`](examples/) | Example API calls, webhook payloads, sample data |
-| [`llms.txt`](llms.txt) | AI discovery file (for LLM indexing) |
+- `schemas/`
+  Public intent schema and example JSON for buyer and supplier normalization.
+- `protocols/`
+  Buyer-agent and seller-agent handoff contract.
+- `frameworks/`
+  Public match scoring dimensions and explainability boundary.
+- `connectors/`
+  Public ingestion abstraction for crawler, webhook, and dataset connectors.
+- `notifications/`
+  Public event contract for reminders, introductions, and review hooks.
+- `demo/`
+  Reference boundary for a local demo UI.
+- `docs/`
+  Positioning, security boundary, launch, and repository metadata notes.
 
----
+## What This Repository Does Not Contain
 
-## Quick Start
+This is not a public copy of the live marketplace.
 
-### Submit a Buyer Demand (Webhook)
+It does **not** include:
 
-```bash
-curl -X POST https://maplebridge.io/api/v1/webhook/manus \
-  -H "Content-Type: application/json" \
-  -d '{
-    "demand": "Looking for a Canadian importer of wireless earbuds, need 500 units minimum, CE certified",
-    "contact_email": "buyer@example.com",
-    "source": "api"
-  }'
-```
+- the production MapleBridge `/app` implementation
+- production FastAPI routes
+- production Streamlit UI
+- production databases
+- real buyer or supplier data
+- real match thresholds or ranking weights
+- production crawler seeds or source lists
+- outbound notification credentials
+- private prompt and anti-abuse logic
 
-Response:
-```json
-{
-  "status": "ok",
-  "intent_id": "INTENT_A1B2C3D4",
-  "matched": 3,
-  "message": "Intent created and matched against supplier database"
-}
+## Repository Structure
+
+```text
+maplebridge-open/
+|- schemas/
+|- protocols/
+|- frameworks/
+|- connectors/
+|- notifications/
+|- demo/
+`- docs/
 ```
 
-See [`docs/webhook.md`](docs/webhook.md) for full integration details.
+## Public vs Private Boundary
 
----
+**Public**
 
-## Supported Markets
+- schema shapes
+- protocol contracts
+- scoring dimensions
+- notification event names
+- demo UI boundaries
+- integration-facing documentation
 
-### Buyer Origin Markets
-- Canada (primary)
-- United States
-- United Kingdom
-- European Union
-- Australia / New Zealand
-- Southeast Asia (Singapore, Malaysia, Thailand)
-- Middle East (UAE, Saudi Arabia)
+**Private**
 
-### Chinese Supplier Hubs
-- **Yiwu** (义乌) — small commodities, gifts, toys, daily goods
-- **Guangzhou** (广州) — electronics, beauty, fashion
-- **Shenzhen** (深圳) — consumer electronics, tech accessories
-- **Dongguan** (东莞) — furniture, plastics, hardware
-- **Ningbo** (宁波) — machinery, auto parts, plastics
-- **Hangzhou** (杭州) — apparel, software, cross-border e-commerce
+- live marketplace logic
+- live customer data
+- production orchestration
+- trust heuristics
+- real crawler operations
+- production follow-up flows
 
----
+See:
 
-## Product Categories
+- [docs/positioning.md](docs/positioning.md)
+- [docs/security-boundary.md](docs/security-boundary.md)
+- [docs/github-metadata.md](docs/github-metadata.md)
 
-| Category (EN) | Category (ZH) | Examples |
-|---------------|---------------|---------|
-| Consumer Electronics | 消费电子 | Earbuds, power banks, smartwatches |
-| Home & Furniture | 家居家具 | Chairs, lighting, storage |
-| Toys & Gifts | 玩具礼品 | Educational toys, plush, novelty |
-| Apparel & Accessories | 服装配饰 | OEM clothing, bags, shoes |
-| Beauty & Personal Care | 美妆护肤 | Skincare, cosmetics, wellness |
-| Pet Products | 宠物用品 | Toys, accessories, food packaging |
-| Hardware & Tools | 五金工具 | Hand tools, fasteners |
-| Packaging Materials | 包装材料 | Boxes, bags, labels |
+## Recommended First Read
 
----
+- [schemas/intent-schema.md](schemas/intent-schema.md)
+- [protocols/agent-protocol.md](protocols/agent-protocol.md)
+- [frameworks/match-engine.md](frameworks/match-engine.md)
 
-## Integration Partners
+## Status
 
-MapleBridge accepts buyer demand from multiple channels:
+This repository is currently an **interface-first scaffold** prepared for GitHub publication.
 
-- **Direct API** — REST webhook endpoint
-- **MANUS** — AI agent integration (automated buyer demand parsing)
-- **Telegram bot** — conversational matching interface
-- **Web form** — maplebridge.io buyer portal
+Before publishing publicly, choose:
 
----
+- repository name
+- short description
+- topics
+- license
+- contribution policy
 
-## Contributing
+Suggested launch copy is in:
 
-This repository welcomes:
+- [docs/github-metadata.md](docs/github-metadata.md)
+- [docs/license-status.md](docs/license-status.md)
 
-- Corrections to API documentation
-- Additional example payloads
-- Bug reports on documented API behavior
-- Translations of documentation
+## Production Relationship
 
-Please open an issue or pull request.
+The live MapleBridge website and application remain separate:
 
----
+- website: [https://maplebridge.io](https://maplebridge.io)
+- production app: [https://maplebridge.io/app](https://maplebridge.io/app)
 
-## License
-
-Documentation and examples in this repository are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-
-Core platform code is proprietary. See [maplebridge.io/ai-policy](https://maplebridge.io/ai-policy) for AI usage policy.
+This repository should stay outside the production runtime boundary.
