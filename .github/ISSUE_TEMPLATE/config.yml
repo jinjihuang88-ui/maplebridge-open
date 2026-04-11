@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: MapleBridge Open overview
+    url: https://maplebridge.io/open/
+    about: Read the public overview before opening a new issue.
+  - name: Security boundary
+    url: https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/security-boundary.md
+    about: Check the public versus private boundary before proposing production-facing changes.
