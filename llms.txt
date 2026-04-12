@@ -1,53 +1,40 @@
-# MapleBridge Open Documentation
+# MapleBridge Open
 
-> AI-powered B2B matching platform for global China small commodity export trade. Open API documentation, webhook integration guides, data schemas, and examples.
+> A2A-ready buyer-agent + seller-agent protocol layer for bilateral B2B matching.
 
-## About MapleBridge
+## Positioning
 
-MapleBridge connects global buyers with Chinese manufacturers and small commodity exporters using LLM semantic matching. The platform handles B2B trade across North America, Europe, Southeast Asia, the Middle East, and beyond. Core use case: China's small commodity export (小商品出海) — Yiwu, Guangzhou, Shenzhen, Dongguan suppliers reaching global wholesale buyers.
+MapleBridge Open is the public contract layer behind a bilateral matching workflow:
 
-Key capabilities:
-- Natural language buyer demand parsing (English + Chinese)
-- Semantic matching against supplier capability database
-- Dual-sided intent graph: DEMAND (buyers) + SUPPLY (suppliers)
-- Webhook API for AI agent integration (MANUS, custom bots, CRMs)
-- Free for buyers
+- a buyer agent normalizes demand
+- a seller agent normalizes supply
+- a shared match engine scores bilateral fit
+- connectors ingest external signals into a normalized review layer
+- notifications trigger introductions, reminders, and review handoffs
 
-Live platform: https://maplebridge.io
+Live public docs: https://maplebridge.io/open/
+Repository: https://github.com/jinjihuang88-ui/maplebridge-open
 
-## Documentation
+## Start Here
 
-- [README](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/README.md): Platform overview, architecture, supported markets and categories
-- [API Reference](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/api.md): REST endpoints — webhook submission, intent retrieval, match results
-- [Matching Flow](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/matching-flow.md): How LLM semantic matching works — intent parsing, scoring, notification
-- [Webhook Guide](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/webhook.md): Integration guide for submitting buyer demands programmatically
-- [Data Schema](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/data-schema.md): Intent object fields, match object, category taxonomy, payload structure
-- [Examples](https://github.com/jinjihuang88-ui/maplebridge-open/tree/main/examples): Shell and Python webhook examples, sample JSON payloads
+- [README](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/README.md): project overview and public/private boundary
+- [Why A2A](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/why-a2a.md): why buyer-agent + seller-agent matters
+- [Intent Schema](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/schemas/intent-schema.md): normalized demand and supply intent shape
+- [Agent Protocol](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/protocols/agent-protocol.md): handoff contract between specialized agents
+- [Match Engine](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/frameworks/match-engine.md): scoring and explainability boundary
+- [Crawler Connectors](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/connectors/crawler-connectors.md): ingestion abstraction and connector boundary
+- [Notification Interface](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/notifications/notification-interface.md): event model for reminders and introductions
 
-## Key Concepts
+## Legacy API Surface
 
-- **Intent**: Structured representation of a buyer requirement (DEMAND) or supplier capability (SUPPLY)
-- **Semantic matching**: LLM embeddings compare buyer needs with supplier capabilities beyond keyword search
-- **Scarcity level**: Rareness of a supply-demand pair (LOW / MEDIUM / HIGH), used for match prioritization
-- **MANUS integration**: MapleBridge accepts structured buyer demands from MANUS AI agents via webhook
+This repository still includes the public API docs used by MapleBridge integrations:
 
-## Webhook Quick Reference
+- [API Reference](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/api.md)
+- [Webhook Guide](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/webhook.md)
+- [Examples](https://github.com/jinjihuang88-ui/maplebridge-open/tree/main/examples)
 
-```
-POST https://maplebridge.io/api/v1/webhook/manus
-Content-Type: application/json
+## Notes
 
-{
-  "demand": "500 units bamboo cutting boards for Canadian retail, FSC certified",
-  "contact_email": "buyer@company.com",
-  "source": "api"
-}
-```
-
-## Supported Categories
-
-消费电子 (Consumer Electronics), 家居家具 (Home & Furniture), 玩具礼品 (Toys & Gifts), 服装服饰 (Apparel), 美妆护肤 (Beauty), 宠物用品 (Pet Products), 五金工具 (Hardware), 包装材料 (Packaging)
-
-## Chinese Supplier Hubs Covered
-
-Yiwu (义乌), Guangzhou (广州), Shenzhen (深圳), Dongguan (东莞), Ningbo (宁波), Hangzhou (杭州)
+- The live website is https://maplebridge.io
+- The live production app remains separate at https://maplebridge.io/app
+- This repository is intentionally interface-first, not a dump of production code
