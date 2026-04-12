@@ -3,21 +3,21 @@ info:
   title: MapleBridge Trade Matching API
   version: "1.0"
   description: |
-    AI-powered B2B trade matching platform connecting global buyers with verified
-    Chinese manufacturers and small commodity exporters.
+    Public API surface for MapleBridge, alongside the newer MapleBridge Open
+    A2A-ready protocol layer for bilateral B2B matching.
 
-    Buyers post procurement demands via webhook; the platform's LLM engine
-    semantically matches suppliers from Yiwu, Guangzhou, Shenzhen, Dongguan,
-    Ningbo, and Hangzhou — then sends automated email introductions to both parties.
+    This repository preserves integration-facing API docs for webhook demand
+    submission and match retrieval while MapleBridge Open publishes the public
+    buyer-agent + seller-agent contract layer.
 
     **Free for buyers. No API key required for webhook submission.**
 
-    Open-source documentation: https://github.com/maplebridge-io/maplebridge-open
+    Open-source documentation: https://github.com/jinjihuang88-ui/maplebridge-open
   contact:
-    url: https://maplebridge.io
+    url: https://maplebridge.io/open/
   license:
-    name: MIT
-    url: https://opensource.org/licenses/MIT
+    name: Apache-2.0
+    url: https://opensource.org/licenses/Apache-2.0
 
 servers:
   - url: https://maplebridge.io/api/v1

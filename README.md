@@ -4,6 +4,11 @@
 
 **A2A-ready buyer-agent + seller-agent contracts for sourcing and matching workflows.**
 
+For public docs and first-read context:
+
+- Overview: [https://maplebridge.io/open/](https://maplebridge.io/open/)
+- Why A2A: [https://maplebridge.io/open/why-a2a](https://maplebridge.io/open/why-a2a)
+
 MapleBridge Open defines the reusable contract surface behind a workflow where:
 
 - a **buyer agent** normalizes demand
