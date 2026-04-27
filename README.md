@@ -123,6 +123,41 @@ Supplier capability:
 }
 ```
 
+Additional supplier capability examples:
+
+```json
+[
+  {
+    "intent_id": "supplier-dongguan-beauty-private-label",
+    "role": "supplier",
+    "language": "en",
+    "product_category": "beauty & personal care",
+    "summary": "Dongguan private-label skincare factory for trial launches",
+    "country": "China",
+    "moq": { "value": 500, "unit": "units per SKU" },
+    "compliance": ["GMP workshop", "MSDS support", "EU cosmetic filing docs"],
+    "channels": ["OEM", "ODM", "private label", "EU export"],
+    "fit_constraints": ["silkscreen logo", "small-batch carton design", "sample approval before mass production"],
+    "confidence": 0.88,
+    "review_state": "machine_ready"
+  },
+  {
+    "intent_id": "supplier-ningbo-kitchenware-low-moq",
+    "role": "supplier",
+    "language": "en",
+    "product_category": "kitchenware",
+    "summary": "Ningbo kitchenware maker with low-MOQ OEM support",
+    "country": "China",
+    "moq": { "value": 150, "unit": "units per design" },
+    "compliance": ["LFGB", "FDA food contact", "drop-test packaging support"],
+    "channels": ["OEM", "North America export", "EU export"],
+    "fit_constraints": ["starter order for 2-3 SKUs", "barcode labeling", "gift-box packaging"],
+    "confidence": 0.85,
+    "review_state": "needs_review"
+  }
+]
+```
+
 ## Public Boundary
 
 Open in this repository:
