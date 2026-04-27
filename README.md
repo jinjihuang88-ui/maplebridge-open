@@ -57,6 +57,7 @@ Review state: human_review_recommended
 | `examples/` | Concrete buyer, supplier, and match examples |
 | `demo/run-local-match.js` | Small local demo that makes the workflow visible |
 | `docs/promotion-playbook.md` | Non-spam launch and visibility playbook |
+| `docs/github-visibility-plan.md` | GitHub discovery, issue cleanup, and outreach sequence |
 | `llms.txt` | AI crawler summary for LLM and answer-engine discovery |
 
 ## Example Objects
@@ -126,6 +127,7 @@ Not open in this repository:
 - Security boundary: [docs/security-boundary.md](docs/security-boundary.md)
 - Roadmap: [ROADMAP.md](ROADMAP.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+- GitHub visibility plan: [docs/github-visibility-plan.md](docs/github-visibility-plan.md)
 
 ## How To Help
 
