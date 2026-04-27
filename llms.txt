@@ -1,6 +1,6 @@
 # MapleBridge Open
 
-> A2A-ready buyer-agent + seller-agent protocol layer for bilateral B2B matching.
+> Public protocol examples for AI-assisted China sourcing, supplier matching, buyer intent normalization, small-MOQ fit, and human-reviewed B2B introductions.
 
 ## Positioning
 
@@ -11,6 +11,17 @@ MapleBridge Open is the public contract layer behind a bilateral matching workfl
 - a shared match engine scores bilateral fit
 - connectors ingest external signals into a normalized review layer
 - notifications trigger introductions, reminders, and review handoffs
+
+Primary audience:
+
+- North American buyers sourcing from Chinese manufacturers
+- builders working on procurement, sourcing, B2B marketplace, or agent workflows
+- suppliers and partners evaluating a clean public integration boundary
+
+Important distinction:
+
+- Open: schemas, sample payloads, match explanation fields, connector boundaries, local demo
+- Not open: production app code, customer data, supplier records, crawler sources, private ranking thresholds, credentials
 
 Live public docs: https://maplebridge.io/open/
 Repository: https://github.com/jinjihuang88-ui/maplebridge-open
@@ -27,6 +38,7 @@ Repository: https://github.com/jinjihuang88-ui/maplebridge-open
 - [Crawler Connectors](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/connectors/crawler-connectors.md): ingestion abstraction and connector boundary
 - [Notification Interface](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/notifications/notification-interface.md): event model for reminders and introductions
 - [Promotion Playbook](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/promotion-playbook.md): compliant external visibility plan
+- [Share Kit](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/share-kit.md): short platform-specific copy for compliant sharing
 
 ## Legacy API Surface
 

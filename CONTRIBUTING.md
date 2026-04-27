@@ -10,6 +10,17 @@ MapleBridge Open accepts contributions to the public contract layer.
 - example payload improvements
 - explainability and integration notes
 
+## Good First Contributions
+
+Good first contributions should be small enough to review quickly:
+
+- one buyer intent example for a real category
+- one supplier capability example for OEM, ODM, private label, or low-MOQ supply
+- one match explanation that makes a scoring decision easier to audit
+- one wording improvement that makes the public/private boundary clearer
+
+Useful categories include packaging, drinkware, pet products, apparel, home goods, electronics accessories, and ecommerce-ready private label products.
+
 ## Out of Scope
 
 Do not propose changes that require:
@@ -32,6 +43,8 @@ Do not propose changes that require:
 - read [README.md](README.md)
 - read [docs/security-boundary.md](docs/security-boundary.md)
 - check [ROADMAP.md](ROADMAP.md) for current priorities
+- run `npm run demo`
+- run `npm run check:json`
 - add a changelog note if the public interface changed
 
 ## Issue Guidance

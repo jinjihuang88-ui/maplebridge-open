@@ -2,7 +2,7 @@
   "name": "maplebridge-open",
   "version": "0.1.1",
   "private": true,
-  "description": "Public protocol examples for AI-assisted buyer and supplier matching.",
+  "description": "Public protocol examples for AI-assisted China sourcing, supplier matching, buyer intent, and small-MOQ procurement workflows.",
   "scripts": {
     "demo": "node demo/run-local-match.js",
     "check:json": "node -e \"JSON.parse(require('fs').readFileSync('examples/sample-payloads.json','utf8')); console.log('sample-payloads.json OK')\""
@@ -11,8 +11,13 @@
     "ai-agents",
     "supplier-matching",
     "china-sourcing",
+    "small-moq",
+    "verified-manufacturers",
+    "oem",
+    "odm",
     "procurement",
-    "b2b"
+    "b2b",
+    "supply-chain-ai"
   ],
   "license": "Apache-2.0"
 }

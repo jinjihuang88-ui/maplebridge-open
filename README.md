@@ -5,9 +5,30 @@
 [![Open Docs](https://img.shields.io/badge/docs-open%20docs-green.svg)](https://maplebridge.io/open/)
 [![GitHub Stars](https://img.shields.io/github/stars/jinjihuang88-ui/maplebridge-open?style=social)](https://github.com/jinjihuang88-ui/maplebridge-open)
 
-MapleBridge Open is the public protocol layer behind MapleBridge, a sourcing workflow for North American buyers who need a clearer way to find and evaluate Chinese manufacturers.
+MapleBridge Open is a public protocol and example repo for AI-assisted China sourcing. It shows how a buyer brief can become structured buyer intent, how supplier capability can be represented, and how a match can be explained before a human introduction happens.
+
+The practical use case is narrow on purpose: North American buyers looking for verified Chinese manufacturers, small-MOQ supplier options, OEM/ODM/private-label partners, and clearer alternatives to search-first sourcing workflows.
 
 It is not the production marketplace code. It is the open contract surface: buyer intent, supplier capability, matching signals, connector boundaries, and review handoffs.
+
+## Why This Exists
+
+Most sourcing failures do not start with a lack of suppliers. They start with an unclear brief.
+
+MapleBridge Open makes the brief and matching logic visible enough for builders, buyers, partners, and AI agents to reason about it:
+
+- What does the buyer actually need?
+- What can the supplier actually support?
+- Does MOQ, compliance, export-market fit, and packaging fit line up?
+- What should be reviewed by a human before an introduction?
+
+## What You Can Reuse
+
+- JSON examples for buyer intent and supplier capability.
+- A small local matching demo that runs without production access.
+- Public match explanation fields for auditability.
+- Connector and notification boundaries for partner integrations.
+- A clean public/private boundary for open-core or agent workflow projects.
 
 ## Who This Is For
 
@@ -32,6 +53,7 @@ This repository shows a public version of that workflow:
 Run the local example without touching MapleBridge production systems:
 
 ```bash
+npm install
 npm run demo
 ```
 
@@ -56,7 +78,9 @@ Review state: human_review_recommended
 | `notifications/notification-interface.md` | Event model for introductions, reminders, and review handoffs |
 | `examples/` | Concrete buyer, supplier, and match examples |
 | `demo/run-local-match.js` | Small local demo that makes the workflow visible |
+| `.github/ISSUE_TEMPLATE/` | Small contribution templates for examples, schema, and docs |
 | `docs/promotion-playbook.md` | Non-spam launch and visibility playbook |
+| `docs/share-kit.md` | Short platform-specific copy for compliant sharing |
 | `docs/github-visibility-plan.md` | GitHub discovery, issue cleanup, and outreach sequence |
 | `llms.txt` | AI crawler summary for LLM and answer-engine discovery |
 
@@ -123,6 +147,8 @@ Not open in this repository:
 
 - Live website: [maplebridge.io](https://maplebridge.io)
 - Public open docs: [maplebridge.io/open/](https://maplebridge.io/open/)
+- Local demo guide: [demo/README.md](demo/README.md)
+- Share kit: [docs/share-kit.md](docs/share-kit.md)
 - Why A2A matters: [docs/why-a2a.md](docs/why-a2a.md)
 - Security boundary: [docs/security-boundary.md](docs/security-boundary.md)
 - Roadmap: [ROADMAP.md](ROADMAP.md)
@@ -138,5 +164,10 @@ Useful contributions are narrow and practical:
 - Improve schema naming and compatibility notes.
 - Add connector examples that do not expose production data.
 - Improve match explanations so humans can audit why a recommendation happened.
+
+Good first issues:
+
+- [Add one buyer intent example for a real sourcing category](https://github.com/jinjihuang88-ui/maplebridge-open/issues/11)
+- [Add supplier capability examples for OEM and low-MOQ cases](https://github.com/jinjihuang88-ui/maplebridge-open/issues/12)
 
 If this is useful, star the repo or open a small issue with the sourcing workflow you want represented.

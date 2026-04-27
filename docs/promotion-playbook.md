@@ -27,6 +27,8 @@ Use this when the audience is buyers:
 | Quora | Answer sourcing questions with practical advice | Link only if it truly helps |
 | GitHub Discussions | Ask for schema feedback | No marketing tone |
 
+Use [share-kit.md](share-kit.md) for short drafts. Edit the wording before posting so each platform gets a natural version.
+
 ## LinkedIn Draft
 
 I have been working on MapleBridge from a simple sourcing problem: many North American buyers do not fail because there are no Chinese suppliers. They fail because supplier search starts before the buying brief is clear.
@@ -96,3 +98,10 @@ Use profile credibility first. Link only in one sentence when the answer needs a
 - Wednesday: answer one relevant sourcing question without forcing a link.
 - Friday: post one build note or product update if there is a real change.
 - Monthly: tag a small release and summarize what changed.
+
+## Quality Bar
+
+- Prefer one useful comment over five generic link drops.
+- Link to the repo only after giving practical sourcing or implementation advice.
+- Use concrete terms people search for: `small MOQ`, `verified Chinese manufacturers`, `Alibaba alternative`, `OEM`, `ODM`, `private label`, `China sourcing`.
+- Do not imply MapleBridge has vetted a supplier unless that vetting happened in the production workflow.
