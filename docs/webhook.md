@@ -1,208 +1,135 @@
 # Webhook Integration Guide
 
-The MapleBridge webhook allows external systems (AI agents, CRMs, sourcing platforms) to submit buyer demands programmatically and receive matched supplier results.
+The MapleBridge webhook allows external systems such as AI agents, CRMs, sourcing forms, and partner tools to submit buyer demands or supplier capability statements into the public matching boundary.
 
----
+This is a public integration surface. It does not expose production ranking thresholds, private crawler sources, customer records, or notification credentials.
 
 ## Endpoint
 
-```
+```text
 POST https://maplebridge.io/api/v1/webhook/manus
 Content-Type: application/json
 ```
-
----
-
-## Use Cases
-
-- **AI agent integration**: Route buyer requirements collected by AI agents (MANUS, ChatGPT plugins, custom bots) directly to MapleBridge matching
-- **CRM automation**: Trigger matching when a new sourcing request is logged in your CRM
-- **Multi-platform aggregation**: Collect buyer intents from Telegram, WhatsApp, web forms, and funnel them through a single integration
-- **Batch processing**: Process bulk buyer inquiry files by iterating webhook calls
-
----
 
 ## Request Format
 
 ```json
 {
-  "demand": "string (required)",
+  "core_need": "string (required)",
+  "role": "demand | supply (optional)",
   "contact_email": "string (optional)",
-  "contact_phone": "string (optional)",
-  "contact_wechat": "string (optional)",
-  "source": "string (optional)",
+  "contact_name": "string (optional)",
+  "company": "string (optional)",
+  "country": "string (optional)",
+  "source_url": "string (optional)",
   "category": "string (optional)",
-  "budget_usd": "number (optional)"
+  "budget_usd": 0,
+  "manus_record_id": "string (optional)"
 }
 ```
 
-### Field Details
+## Fields
 
-**`demand`** *(required)*
+`core_need` is the natural-language buyer requirement or supplier capability statement. It can be written in plain English or Chinese.
 
-Natural language description of what the buyer needs. The LLM parser extracts:
-- Product type and specifications
-- Quantity / MOQ requirements
-- Target market / destination
-- Certifications required
-- Timeline and urgency
-- Budget constraints
+`role` is optional. Use `demand` for buyer requirements and `supply` for supplier capability statements. If omitted, MapleBridge attempts to infer the role from the text.
 
-Write as a buyer would describe their need — no structured format required.
+`source_url` is an optional origin hint such as `api-example`, `manus-agent`, `crm-record-123`, or a partner record URL.
 
-**`source`** *(optional)*
+`category` is an optional product category hint, such as `consumer electronics`, `home goods`, `toys`, `apparel`, `beauty`, `pet products`, `hardware`, or `general`.
 
-Identifier for the originating channel. Used for analytics. Suggested values:
-- `"api"` — direct API call
-- `"telegram"` — Telegram bot
-- `"manus"` — MANUS AI agent
-- `"web"` — web portal
-- `"crm"` — CRM integration
+## Example: Buyer Demand
 
-**`category`** *(optional)*
+```json
+{
+  "core_need": "Need 500 stainless steel insulated bottles for Canadian retail. 500ml, BPA-free, custom logo, leak-proof cap, retail packaging.",
+  "role": "demand",
+  "contact_email": "buyer@example.com",
+  "country": "CA",
+  "source_url": "api-example",
+  "category": "drinkware",
+  "budget_usd": 6000
+}
+```
 
-Product category hint to improve matching speed. Use Chinese category names from the taxonomy:
+## Example: Supplier Capability
 
-| Value | Meaning |
-|-------|---------|
-| `消费电子` | Consumer electronics |
-| `家居家具` | Home & furniture |
-| `玩具礼品` | Toys & gifts |
-| `服装服饰` | Apparel & accessories |
-| `美妆护肤` | Beauty & personal care |
-| `宠物用品` | Pet products |
-| `五金工具` | Hardware & tools |
-| `综合` | General / uncategorized |
-
-If omitted, the LLM parser infers the category from the demand text.
-
----
+```json
+{
+  "core_need": "Zhejiang pet toy factory looking for Canadian pet product importers. CE available, MOQ 300 units, OEM customization supported.",
+  "role": "supply",
+  "contact_email": "export@example.com",
+  "country": "China",
+  "source_url": "api-example",
+  "category": "pet products"
+}
+```
 
 ## Response Format
 
-### Success
-
 ```json
 {
-  "status": "ok",
+  "status": "received",
+  "role": "demand",
   "intent_id": "INTENT_A1B2C3D4",
-  "matched": 3,
-  "message": "Intent received and matched"
+  "message": "Demand received and background matching started"
 }
 ```
 
-- `intent_id`: Use this to query match details via GET `/intents/{intent_id}`
-- `matched`: Number of supplier intents matched (may be 0 for very specific requirements)
+`intent_id` is the tracking identifier for the created intent.
 
-### Error
+`role` is the interpreted role, either `demand` or `supply`.
 
-```json
-{
-  "status": "error",
-  "message": "demand field is required"
-}
-```
-
----
-
-## Example Integrations
-
-### Python
+## Python Example
 
 ```python
 import requests
 
-def submit_demand(demand_text, email=None, source="api"):
+def submit_demand(core_need, email=None, source_url="api-example"):
     response = requests.post(
         "https://maplebridge.io/api/v1/webhook/manus",
         json={
-            "demand": demand_text,
+            "core_need": core_need,
+            "role": "demand",
             "contact_email": email,
-            "source": source,
-        }
+            "source_url": source_url,
+        },
+        timeout=30,
     )
+    response.raise_for_status()
     return response.json()
 
 result = submit_demand(
-    "Need 2000 units custom logo USB-C cables for Canadian market, 1m length, braided nylon",
-    email="buyer@company.com"
+    "Need 2000 units custom logo USB-C cables for Canada, 1m length, braided nylon.",
+    email="buyer@example.com",
 )
-print(result["intent_id"])  # INTENT_XXXXXXXX
-print(result["matched"])    # e.g., 7
+print(result["intent_id"])
 ```
 
-### JavaScript / Node.js
+## JavaScript Example
 
 ```javascript
-async function submitDemand(demand, contactEmail, source = "api") {
+async function submitDemand(coreNeed, contactEmail, sourceUrl = "api-example") {
   const response = await fetch("https://maplebridge.io/api/v1/webhook/manus", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      demand,
+      core_need: coreNeed,
+      role: "demand",
       contact_email: contactEmail,
-      source,
+      source_url: sourceUrl,
     }),
   });
   return response.json();
 }
-
-const result = await submitDemand(
-  "Looking for bamboo toothbrush manufacturer, 10,000 units, FSC certified, eco packaging",
-  "purchasing@greenco.ca"
-);
-console.log(result.intent_id);
 ```
-
-### MANUS Agent Integration
-
-MapleBridge is designed to receive structured buyer demands from MANUS AI agents. Configure your MANUS agent with the webhook action:
-
-```json
-{
-  "action": "http_post",
-  "url": "https://maplebridge.io/api/v1/webhook/manus",
-  "body": {
-    "demand": "{{buyer_requirement}}",
-    "contact_email": "{{buyer_email}}",
-    "source": "manus"
-  }
-}
-```
-
----
 
 ## Demand Writing Tips
 
-For best matching results:
+Good buyer demand examples include product type, quantity, compliance requirements, target market, budget range, and delivery constraints.
 
-| Do | Don't |
-|----|-------|
-| Include quantity/MOQ | Just say "bulk" |
-| Mention certifications (CE, FCC, FDA) | Omit compliance requirements |
-| State the destination market | Leave market unspecified |
-| Include budget range | Leave budget blank |
-| Describe key specs | Use only product name |
-
-**Good example:**
-> "500 units stainless steel water bottles for Canadian retail, BPA-free, 500ml, leak-proof lid, custom logo printing, budget $8-12 per unit, need samples within 3 weeks"
-
-**Poor example:**
-> "water bottles"
-
----
+Good supplier capability examples include product category, MOQ, compliance support, OEM/ODM/private-label capability, export market experience, and packaging or logistics limits.
 
 ## Idempotency
 
-The webhook does not enforce idempotency. Submitting the same demand text twice will create two separate intents. If you need idempotency, include a unique `source` identifier and deduplicate on your end before calling the webhook.
-
----
-
-## Notifications
-
-When matches are found:
-1. The buyer receives an email summary of matched suppliers (if `contact_email` provided)
-2. Matched suppliers receive the anonymized buyer demand summary
-3. Both parties can connect directly once match is confirmed
-
-Notification timing: typically within 60 seconds of webhook submission.
+The webhook does not enforce idempotency. If your integration may submit the same record more than once, include a stable `manus_record_id` or deduplicate in your own system before calling the webhook.

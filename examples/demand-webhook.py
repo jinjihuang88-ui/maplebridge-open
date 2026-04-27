@@ -13,9 +13,9 @@ import requests
 BASE_URL = "https://maplebridge.io/api/v1"
 
 
-def submit_demand(demand: str, **kwargs: object) -> dict:
+def submit_demand(core_need: str, **kwargs: object) -> dict:
     """Submit a buyer demand to the public webhook boundary."""
-    payload = {"demand": demand, **kwargs}
+    payload = {"core_need": core_need, "role": "demand", **kwargs}
     response = requests.post(
         f"{BASE_URL}/webhook/manus",
         json=payload,
@@ -27,12 +27,12 @@ def submit_demand(demand: str, **kwargs: object) -> dict:
 
 if __name__ == "__main__":
     result = submit_demand(
-        demand=(
+        core_need=(
             "Need 500 stainless steel insulated bottles for Canadian retail. "
             "500ml, BPA-free, custom logo, leak-proof cap, retail packaging."
         ),
         contact_email="buyer@example.com",
-        source="api",
+        source_url="api-example",
         category="drinkware",
         budget_usd=6000,
     )
