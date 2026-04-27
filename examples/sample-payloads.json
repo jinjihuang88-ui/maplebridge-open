@@ -45,6 +45,29 @@
       ],
       "confidence": 0.82,
       "review_state": "needs_review"
+    },
+    {
+      "intent_id": "buyer-recycled-mailer-boxes-us",
+      "role": "buyer",
+      "language": "en",
+      "product_category": "packaging",
+      "summary": "Recycled mailer box order for US skincare brand launch",
+      "country": "United States",
+      "moq": {
+        "value": 2000,
+        "unit": "units"
+      },
+      "compliance": [
+        "FSC-certified paper",
+        "soy-based ink"
+      ],
+      "fit_constraints": [
+        "custom printed mailer boxes",
+        "ISTA-style drop resistance",
+        "delivery to Los Angeles before September launch"
+      ],
+      "confidence": 0.88,
+      "review_state": "needs_review"
     }
   ],
   "supplier_intents": [
