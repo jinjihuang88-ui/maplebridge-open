@@ -4,32 +4,32 @@ This repository is intentionally interface-first. The roadmap is organized aroun
 
 ## Phase 1: Public Contract Layer
 
-Status: in progress
+Status: substantially complete
 
-- publish intent schema for bilateral buyer and supplier normalization
-- publish buyer-agent and seller-agent protocol contracts
-- publish public match-engine dimensions and explainability notes
-- publish notification event interface
-- publish a clear A2A positioning note
+- [x] publish intent schema for bilateral buyer and supplier normalization
+- [x] publish buyer-agent and seller-agent protocol contracts
+- [x] publish public match-engine dimensions and explainability notes
+- [x] publish notification event interface
+- [x] publish a clear A2A positioning note
 
 ## Phase 2: Builder-Facing Examples
 
 Status: in progress
 
-- add example buyer intent payloads for multiple sourcing scenarios
-- add example seller capability payloads for OEM, ODM, and low-MOQ cases
-- add end-to-end sample match explanations
-- add connector examples for webhook, CSV, and crawler ingestion
-- add a local reference demo flow that never touches production systems
+- [x] add example buyer intent payloads for multiple sourcing scenarios
+- [x] add example seller capability payloads for OEM, ODM, and low-MOQ cases
+- [ ] add more end-to-end sample match explanations
+- [ ] add connector examples for webhook, CSV, and crawler ingestion
+- [x] add a local reference demo flow that never touches production systems
 
 ## Phase 3: Open Integration Surface
 
-Status: planned
+Status: started
 
-- publish a lightweight integration guide for partner platforms
-- document trust and review handoff boundaries
-- add versioned contract notes
-- add migration guidance for future schema revisions
+- [x] publish a lightweight integration guide for partner platforms
+- [x] document trust and review handoff boundaries
+- [x] add versioned contract notes
+- [ ] add migration guidance for future schema revisions
 
 ## Phase 4: Ecosystem Readiness
 
