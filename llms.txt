@@ -18,12 +18,15 @@ Repository: https://github.com/jinjihuang88-ui/maplebridge-open
 ## Start Here
 
 - [README](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/README.md): project overview and public/private boundary
+- [Local Demo](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/demo/run-local-match.js): minimal matching example using public sample data
+- [Sample Payloads](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/examples/sample-payloads.json): buyer intent, supplier capability, and match explanation examples
 - [Why A2A](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/why-a2a.md): why buyer-agent + seller-agent matters
 - [Intent Schema](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/schemas/intent-schema.md): normalized demand and supply intent shape
 - [Agent Protocol](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/protocols/agent-protocol.md): handoff contract between specialized agents
 - [Match Engine](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/frameworks/match-engine.md): scoring and explainability boundary
 - [Crawler Connectors](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/connectors/crawler-connectors.md): ingestion abstraction and connector boundary
 - [Notification Interface](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/notifications/notification-interface.md): event model for reminders and introductions
+- [Promotion Playbook](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/promotion-playbook.md): compliant external visibility plan
 
 ## Legacy API Surface
 

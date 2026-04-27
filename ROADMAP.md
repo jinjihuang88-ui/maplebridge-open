@@ -14,7 +14,7 @@ Status: in progress
 
 ## Phase 2: Builder-Facing Examples
 
-Status: next
+Status: in progress
 
 - add example buyer intent payloads for multiple sourcing scenarios
 - add example seller capability payloads for OEM, ODM, and low-MOQ cases
@@ -35,7 +35,7 @@ Status: planned
 
 Status: planned
 
-- publish first tagged release
+- publish follow-up tagged releases with example-driven changes
 - maintain changelog entries for public contract changes
 - enable repository discussions for builder questions
 - collect issue-driven feedback on schema and protocol design

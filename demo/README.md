@@ -1,22 +1,23 @@
-# Local Demo UI Boundary
+# Local Demo
 
-The local demo UI is a reference boundary for testing the public protocol surface.
+This demo makes the public matching workflow concrete without calling MapleBridge production systems.
 
-## Scope
+## Run
 
-- buyer brief form
-- supplier profile form
-- match explanation panel
-- review queue placeholder
-- notification preview state
+```bash
+npm run demo
+```
+
+## What It Does
+
+- loads sample buyer and supplier intents from `examples/sample-payloads.json`
+- compares category, MOQ, compliance, and market/channel fit
+- prints the best match and human-readable explanation
 
 ## Out of Scope
 
 - production `/app`
 - production auth
-- production DB writes
-- live outbound notifications
-
-## Goal
-
-Give GitHub visitors something concrete enough to understand the workflow without exposing the live MapleBridge marketplace implementation.
+- production database writes
+- live crawler sources
+- outbound notifications
