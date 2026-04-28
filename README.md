@@ -5,11 +5,39 @@
 [![Open Docs](https://img.shields.io/badge/docs-open%20docs-green.svg)](https://maplebridge.io/open/)
 [![GitHub Stars](https://img.shields.io/github/stars/jinjihuang88-ui/maplebridge-open?style=social)](https://github.com/jinjihuang88-ui/maplebridge-open)
 
-MapleBridge Open is a public protocol and example repo for AI-assisted China sourcing. It shows how a buyer brief can become structured buyer intent, how supplier capability can be represented, and how a match can be explained before a human introduction happens.
+MapleBridge Open is a public protocol and example repo for AI-assisted China sourcing. It shows how a buyer brief becomes structured buyer intent, how supplier capability can be represented, and how a match can be explained before a human introduction happens.
 
-The practical use case is narrow on purpose: North American buyers looking for verified Chinese manufacturers, small-MOQ supplier options, OEM/ODM/private-label partners, and clearer alternatives to search-first sourcing workflows.
+The use case is narrow on purpose: North American buyers looking for verified Chinese manufacturers, small-MOQ supplier options, OEM/ODM/private-label partners, and clearer alternatives to search-first sourcing workflows.
 
-It is not the production marketplace code. It is the open contract surface: buyer intent, supplier capability, matching signals, connector boundaries, and review handoffs.
+This is not the production marketplace code. It is the open contract surface: buyer intent, supplier capability, matching signals, connector boundaries, and review handoffs.
+
+## Start Here
+
+| If you are... | Start with | Why |
+| --- | --- | --- |
+| An AI agent or procurement workflow builder | [`schemas/intent.schema.json`](schemas/intent.schema.json), [`protocols/agent-protocol.md`](protocols/agent-protocol.md) | Understand the public buyer/supplier intent contract. |
+| A sourcing or marketplace operator | [`frameworks/match-engine.md`](frameworks/match-engine.md), [`examples/`](examples/) | See how category fit, MOQ, compliance, and export-market fit are represented. |
+| A partner exploring integrations | [`connectors/crawler-connectors.md`](connectors/crawler-connectors.md), [`notifications/notification-interface.md`](notifications/notification-interface.md) | Review the public connector and notification boundary. |
+| A first-time contributor | [`CONTRIBUTING.md`](CONTRIBUTING.md), [good first issues](#how-to-help) | Add examples without touching private systems. |
+
+## Quick Demo
+
+Run the local example without production access:
+
+```bash
+npm install
+npm run demo
+```
+
+Expected output:
+
+```text
+Buyer intent: Low-MOQ insulated bottle order for Canada
+Best supplier: Shenzhen drinkware OEM with FDA/LFGB experience
+Match score: 0.91
+Why it matched: category fit, MOQ fit, compliance fit, North America export fit
+Review state: human_review_recommended
+```
 
 ## Why This Exists
 
@@ -25,7 +53,7 @@ MapleBridge Open makes the brief and matching logic visible enough for builders,
 ## What You Can Reuse
 
 - JSON examples for buyer intent and supplier capability.
-- A small local matching demo that runs without production access.
+- A local matching demo that runs without production access.
 - Public match explanation fields for auditability.
 - Connector and notification boundaries for partner integrations.
 - A clean public/private boundary for open-core or agent workflow projects.
@@ -48,25 +76,6 @@ This repository shows a public version of that workflow:
 3. A match layer compares category, MOQ, compliance, market fit, and review risk.
 4. A human review layer decides whether an introduction should happen.
 
-## Quick Demo
-
-Run the local example without touching MapleBridge production systems:
-
-```bash
-npm install
-npm run demo
-```
-
-Expected output:
-
-```text
-Buyer intent: Low-MOQ insulated bottle order for Canada
-Best supplier: Shenzhen drinkware OEM with FDA/LFGB experience
-Match score: 0.91
-Why it matched: category fit, MOQ fit, compliance fit, North America export fit
-Review state: human_review_recommended
-```
-
 ## Repository Map
 
 | Path | Purpose |
@@ -77,8 +86,8 @@ Review state: human_review_recommended
 | `connectors/crawler-connectors.md` | Connector abstraction for external supply and demand signals |
 | `notifications/notification-interface.md` | Event model for introductions, reminders, and review handoffs |
 | `examples/` | Concrete buyer, supplier, and match examples |
-| `demo/run-local-match.js` | Small local demo that makes the workflow visible |
-| `.github/ISSUE_TEMPLATE/` | Small contribution templates for examples, schema, and docs |
+| `demo/run-local-match.js` | Local demo that makes the workflow visible |
+| `.github/ISSUE_TEMPLATE/` | Contribution templates for examples, schema, and docs |
 | `docs/promotion-playbook.md` | Non-spam launch and visibility playbook |
 | `docs/share-kit.md` | Short platform-specific copy for compliant sharing |
 | `docs/github-visibility-plan.md` | GitHub discovery, issue cleanup, and outreach sequence |
@@ -123,40 +132,7 @@ Supplier capability:
 }
 ```
 
-Additional supplier capability examples:
-
-```json
-[
-  {
-    "intent_id": "supplier-dongguan-beauty-private-label",
-    "role": "supplier",
-    "language": "en",
-    "product_category": "beauty & personal care",
-    "summary": "Dongguan private-label skincare factory for trial launches",
-    "country": "China",
-    "moq": { "value": 500, "unit": "units per SKU" },
-    "compliance": ["GMP workshop", "MSDS support", "EU cosmetic filing docs"],
-    "channels": ["OEM", "ODM", "private label", "EU export"],
-    "fit_constraints": ["silkscreen logo", "small-batch carton design", "sample approval before mass production"],
-    "confidence": 0.88,
-    "review_state": "machine_ready"
-  },
-  {
-    "intent_id": "supplier-ningbo-kitchenware-low-moq",
-    "role": "supplier",
-    "language": "en",
-    "product_category": "kitchenware",
-    "summary": "Ningbo kitchenware maker with low-MOQ OEM support",
-    "country": "China",
-    "moq": { "value": 150, "unit": "units per design" },
-    "compliance": ["LFGB", "FDA food contact", "drop-test packaging support"],
-    "channels": ["OEM", "North America export", "EU export"],
-    "fit_constraints": ["starter order for 2-3 SKUs", "barcode labeling", "gift-box packaging"],
-    "confidence": 0.85,
-    "review_state": "needs_review"
-  }
-]
-```
+Additional examples live in [`examples/`](examples/), including OEM, ODM, private-label, low-MOQ, and packaging cases.
 
 ## Public Boundary
 
@@ -194,7 +170,7 @@ Not open in this repository:
 
 Useful contributions are narrow and practical:
 
-- Add better sample buyer intents for real sourcing categories.
+- Add buyer intents for real sourcing categories.
 - Add supplier capability examples for OEM, ODM, private label, or low-MOQ cases.
 - Improve schema naming and compatibility notes.
 - Add connector examples that do not expose production data.
