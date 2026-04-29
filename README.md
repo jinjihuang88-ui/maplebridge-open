@@ -88,6 +88,7 @@ This repository shows a public version of that workflow:
 | `examples/` | Concrete buyer, supplier, and match examples |
 | `demo/run-local-match.js` | Local demo that makes the workflow visible |
 | `.github/ISSUE_TEMPLATE/` | Contribution templates for examples, schema, and docs |
+| `docs/releases/v0.1.3.md` | Latest public release notes for category-specific sourcing examples |
 | `docs/promotion-playbook.md` | Non-spam launch and visibility playbook |
 | `docs/share-kit.md` | Short platform-specific copy for compliant sharing |
 | `docs/github-visibility-plan.md` | GitHub discovery, issue cleanup, and outreach sequence |
@@ -158,6 +159,7 @@ Not open in this repository:
 
 - Live website: [maplebridge.io](https://maplebridge.io)
 - Public open docs: [maplebridge.io/open/](https://maplebridge.io/open/)
+- Latest release notes: [v0.1.3](docs/releases/v0.1.3.md)
 - Local demo guide: [demo/README.md](demo/README.md)
 - Share kit: [docs/share-kit.md](docs/share-kit.md)
 - Why A2A matters: [docs/why-a2a.md](docs/why-a2a.md)

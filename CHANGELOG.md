@@ -6,6 +6,10 @@ This changelog covers the open contract layer only. It does not describe changes
 
 ## Unreleased
 
+No unreleased public changes yet.
+
+## 2026-04-29 - v0.1.3
+
 ### Added
 
 - category-specific buyer intents for skincare packaging and smart home electronics
