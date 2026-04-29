@@ -6,7 +6,11 @@ This changelog covers the open contract layer only. It does not describe changes
 
 ## Unreleased
 
-No unreleased changes.
+### Added
+
+- category-specific buyer intents for skincare packaging and smart home electronics
+- supplier capability examples for packaging, skincare packaging, and smart home electronics
+- additional human-auditable match explanations for packaging, skincare, and electronics workflows
 
 ## 2026-04-27
 

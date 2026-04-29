@@ -68,6 +68,55 @@
       ],
       "confidence": 0.88,
       "review_state": "needs_review"
+    },
+    {
+      "intent_id": "buyer-private-label-skincare-ca",
+      "role": "buyer",
+      "language": "en",
+      "product_category": "beauty packaging",
+      "summary": "Private-label skincare packaging set for Canadian launch",
+      "country": "Canada",
+      "moq": {
+        "value": 1500,
+        "unit": "sets"
+      },
+      "compliance": [
+        "cosmetic packaging grade",
+        "recyclable materials"
+      ],
+      "fit_constraints": [
+        "airless pump bottle",
+        "matching jar and carton",
+        "low-MOQ color customization",
+        "ship to Vancouver"
+      ],
+      "confidence": 0.84,
+      "review_state": "needs_review"
+    },
+    {
+      "intent_id": "buyer-smart-home-plugs-us",
+      "role": "buyer",
+      "language": "en",
+      "product_category": "consumer electronics",
+      "summary": "FCC-ready smart plug trial order for US ecommerce",
+      "country": "United States",
+      "moq": {
+        "value": 1000,
+        "unit": "units"
+      },
+      "compliance": [
+        "FCC",
+        "ETL",
+        "US plug"
+      ],
+      "fit_constraints": [
+        "Tuya-compatible firmware",
+        "Amazon FBA labeling",
+        "retail box",
+        "ship to California"
+      ],
+      "confidence": 0.81,
+      "review_state": "needs_review"
     }
   ],
   "supplier_intents": [
@@ -126,6 +175,92 @@
       ],
       "confidence": 0.87,
       "review_state": "machine_ready"
+    },
+    {
+      "intent_id": "supplier-guangdong-packaging-oem",
+      "role": "supplier",
+      "language": "en",
+      "product_category": "packaging",
+      "summary": "Guangdong packaging OEM for recycled printed mailer boxes",
+      "country": "China",
+      "moq": {
+        "value": 1000,
+        "unit": "units"
+      },
+      "compliance": [
+        "FSC-certified paper",
+        "soy-based ink",
+        "recyclable materials"
+      ],
+      "channels": [
+        "OEM",
+        "North America export",
+        "brand packaging"
+      ],
+      "fit_constraints": [
+        "custom printed mailer boxes",
+        "drop-test packaging",
+        "retail launch support"
+      ],
+      "confidence": 0.89,
+      "review_state": "machine_ready"
+    },
+    {
+      "intent_id": "supplier-ningbo-skincare-packaging",
+      "role": "supplier",
+      "language": "en",
+      "product_category": "beauty packaging",
+      "summary": "Ningbo cosmetic packaging supplier with low-MOQ private label support",
+      "country": "China",
+      "moq": {
+        "value": 1000,
+        "unit": "sets"
+      },
+      "compliance": [
+        "cosmetic packaging grade",
+        "recyclable materials"
+      ],
+      "channels": [
+        "private label",
+        "North America export",
+        "beauty brand packaging"
+      ],
+      "fit_constraints": [
+        "airless pump bottle",
+        "matching jar and carton",
+        "color customization"
+      ],
+      "confidence": 0.86,
+      "review_state": "machine_ready"
+    },
+    {
+      "intent_id": "supplier-shenzhen-smart-home-factory",
+      "role": "supplier",
+      "language": "en",
+      "product_category": "consumer electronics",
+      "summary": "Shenzhen smart home factory with FCC-ready plug products",
+      "country": "China",
+      "moq": {
+        "value": 800,
+        "unit": "units"
+      },
+      "compliance": [
+        "FCC",
+        "ETL",
+        "US plug"
+      ],
+      "channels": [
+        "OEM",
+        "ODM",
+        "US ecommerce export"
+      ],
+      "fit_constraints": [
+        "Tuya-compatible firmware",
+        "Amazon FBA labeling",
+        "retail box"
+      ],
+      "confidence": 0.88,
+      "review_state": "machine_ready"
     }
   ],
   "sample_matches": [
@@ -146,6 +281,69 @@
         "Supplier MOQ is below buyer target.",
         "Supplier compliance covers BPA-free and FDA food contact.",
         "Supplier has North America export support."
+      ],
+      "review_state": "human_review_recommended"
+    },
+    {
+      "match_id": "match-packaging-us-guangdong-oem",
+      "buyer_intent_id": "buyer-recycled-mailer-boxes-us",
+      "supplier_intent_id": "supplier-guangdong-packaging-oem",
+      "score": 0.9,
+      "score_breakdown": {
+        "category_fit": 0.3,
+        "moq_fit": 0.2,
+        "compliance_fit": 0.17,
+        "market_fit": 0.13,
+        "review_confidence": 0.1
+      },
+      "explanation": [
+        "Both sides are in custom packaging.",
+        "Supplier MOQ is below the buyer's 2000-unit launch order.",
+        "FSC paper and soy-based ink requirements are covered.",
+        "North America export experience supports the US delivery target.",
+        "Human review should confirm carton strength and launch delivery date."
+      ],
+      "review_state": "human_review_recommended"
+    },
+    {
+      "match_id": "match-skincare-ca-ningbo-packaging",
+      "buyer_intent_id": "buyer-private-label-skincare-ca",
+      "supplier_intent_id": "supplier-ningbo-skincare-packaging",
+      "score": 0.88,
+      "score_breakdown": {
+        "category_fit": 0.3,
+        "moq_fit": 0.2,
+        "compliance_fit": 0.17,
+        "market_fit": 0.11,
+        "review_confidence": 0.1
+      },
+      "explanation": [
+        "Both sides focus on beauty and cosmetic packaging.",
+        "Supplier MOQ supports the buyer's 1500-set launch order.",
+        "Cosmetic packaging grade and recyclable material requirements overlap.",
+        "Private-label and color customization support the brand launch workflow.",
+        "Human review should confirm component compatibility across bottle, jar, and carton."
+      ],
+      "review_state": "human_review_recommended"
+    },
+    {
+      "match_id": "match-smart-home-us-shenzhen-factory",
+      "buyer_intent_id": "buyer-smart-home-plugs-us",
+      "supplier_intent_id": "supplier-shenzhen-smart-home-factory",
+      "score": 0.91,
+      "score_breakdown": {
+        "category_fit": 0.3,
+        "moq_fit": 0.2,
+        "compliance_fit": 0.17,
+        "market_fit": 0.14,
+        "review_confidence": 0.1
+      },
+      "explanation": [
+        "Both sides are in consumer electronics.",
+        "Supplier MOQ is below the buyer's 1000-unit trial order.",
+        "FCC, ETL, and US plug requirements are covered.",
+        "US ecommerce export experience supports Amazon FBA handling.",
+        "Human review should confirm firmware version, test reports, and packaging artwork."
       ],
       "review_state": "human_review_recommended"
     }
