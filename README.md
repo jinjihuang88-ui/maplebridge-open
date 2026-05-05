@@ -18,6 +18,7 @@ This is not the production marketplace code. It is the open contract surface: bu
 | An AI agent or procurement workflow builder | [`schemas/intent.schema.json`](schemas/intent.schema.json), [`protocols/agent-protocol.md`](protocols/agent-protocol.md) | Understand the public buyer/supplier intent contract. |
 | A sourcing or marketplace operator | [`frameworks/match-engine.md`](frameworks/match-engine.md), [`examples/`](examples/) | See how category fit, MOQ, compliance, and export-market fit are represented. |
 | A partner exploring integrations | [`connectors/crawler-connectors.md`](connectors/crawler-connectors.md), [`notifications/notification-interface.md`](notifications/notification-interface.md) | Review the public connector and notification boundary. |
+| An investor, builder, or analyst | [`docs/investor-and-builder-brief.md`](docs/investor-and-builder-brief.md) | Understand the product thesis, public/private boundary, and why A2A matters for sourcing. |
 | A first-time contributor | [`CONTRIBUTING.md`](CONTRIBUTING.md), [good first issues](#how-to-help) | Add examples without touching private systems. |
 
 ## Quick Demo
@@ -162,6 +163,7 @@ Not open in this repository:
 - Latest release notes: [v0.1.3](docs/releases/v0.1.3.md)
 - Local demo guide: [demo/README.md](demo/README.md)
 - Share kit: [docs/share-kit.md](docs/share-kit.md)
+- Investor and builder brief: [docs/investor-and-builder-brief.md](docs/investor-and-builder-brief.md)
 - Why A2A matters: [docs/why-a2a.md](docs/why-a2a.md)
 - Security boundary: [docs/security-boundary.md](docs/security-boundary.md)
 - Roadmap: [ROADMAP.md](ROADMAP.md)

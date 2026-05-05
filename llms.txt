@@ -32,6 +32,7 @@ Repository: https://github.com/jinjihuang88-ui/maplebridge-open
 - [Local Demo](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/demo/run-local-match.js): minimal matching example using public sample data
 - [Sample Payloads](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/examples/sample-payloads.json): buyer intent, supplier capability, and match explanation examples
 - [Why A2A](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/why-a2a.md): why buyer-agent + seller-agent matters
+- [Investor and Builder Brief](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/investor-and-builder-brief.md): product thesis, public/private boundary, and A2A sourcing workflow summary
 - [Intent Schema](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/schemas/intent-schema.md): normalized demand and supply intent shape
 - [Agent Protocol](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/protocols/agent-protocol.md): handoff contract between specialized agents
 - [Match Engine](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/frameworks/match-engine.md): scoring and explainability boundary
