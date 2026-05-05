@@ -4,9 +4,17 @@ All notable public-facing changes to this repository should be recorded here.
 
 This changelog covers the open contract layer only. It does not describe changes to the private MapleBridge production app.
 
-## Unreleased
+## 2026-05-05 - v0.1.4
 
-No unreleased public changes yet.
+### Added
+
+- investor and builder brief explaining the MapleBridge A2A sourcing thesis
+- README entry point for investors, builders, and analysts
+- AI-readable `llms.txt` reference to the new brief
+
+### Changed
+
+- added a README badge linking directly to the investor and builder brief
 
 ## 2026-04-29 - v0.1.3
 

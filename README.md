@@ -3,6 +3,7 @@
 [![Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Live Platform](https://img.shields.io/badge/platform-maplebridge.io-orange.svg)](https://maplebridge.io)
 [![Open Docs](https://img.shields.io/badge/docs-open%20docs-green.svg)](https://maplebridge.io/open/)
+[![Builder Brief](https://img.shields.io/badge/brief-investor%20%26%20builder-0f766e.svg)](docs/investor-and-builder-brief.md)
 [![GitHub Stars](https://img.shields.io/github/stars/jinjihuang88-ui/maplebridge-open?style=social)](https://github.com/jinjihuang88-ui/maplebridge-open)
 
 MapleBridge Open is a public protocol and example repo for AI-assisted China sourcing. It shows how a buyer brief becomes structured buyer intent, how supplier capability can be represented, and how a match can be explained before a human introduction happens.
