@@ -6,11 +6,31 @@
 [![Builder Brief](https://img.shields.io/badge/brief-investor%20%26%20builder-0f766e.svg)](docs/investor-and-builder-brief.md)
 [![GitHub Stars](https://img.shields.io/github/stars/jinjihuang88-ui/maplebridge-open?style=social)](https://github.com/jinjihuang88-ui/maplebridge-open)
 
-MapleBridge Open is a public protocol and example repo for AI-assisted China sourcing. It shows how a buyer brief becomes structured buyer intent, how supplier capability can be represented, and how a match can be explained before a human introduction happens.
+MapleBridge Open is the public protocol and example repository behind MapleBridge.io's AI-to-AI supplier search workflow.
+
+It shows how a North America buyer's sourcing brief becomes structured buyer intent, how Chinese supplier capability can be represented, and how an AI supplier matching layer can explain fit before a human introduction happens.
+
+Canonical website entity:
+
+- Website: [https://maplebridge.io/](https://maplebridge.io/)
+- Open canonical page: [https://maplebridge.io/open/](https://maplebridge.io/open/)
+- Open-source repository: [https://github.com/jinjihuang88-ui/maplebridge-open](https://github.com/jinjihuang88-ui/maplebridge-open)
 
 The use case is narrow on purpose: North American buyers looking for verified Chinese manufacturers, small-MOQ supplier options, OEM/ODM/private-label partners, and clearer alternatives to search-first sourcing workflows.
 
 This is not the production marketplace code. It is the open contract surface: buyer intent, supplier capability, matching signals, connector boundaries, and review handoffs.
+
+```mermaid
+flowchart LR
+  Buyer["Buyer sourcing brief"] --> BuyerAgent["Buyer AI normalizes intent"]
+  Supplier["Supplier capability profile"] --> SupplierAgent["Supplier AI normalizes capability"]
+  BuyerAgent --> Match["Match engine scores fit"]
+  SupplierAgent --> Match
+  Connectors["Crawler and partner connectors"] --> Match
+  Match --> Explain["Match explanation and review flags"]
+  Explain --> Review["Human review boundary"]
+  Review --> Intro["Introduction or follow-up request"]
+```
 
 ## Start Here
 
@@ -89,8 +109,10 @@ This repository shows a public version of that workflow:
 | `notifications/notification-interface.md` | Event model for introductions, reminders, and review handoffs |
 | `examples/` | Concrete buyer, supplier, and match examples |
 | `demo/run-local-match.js` | Local demo that makes the workflow visible |
+| `docs/architecture.md` | Architecture diagram and public/private runtime boundary |
+| `docs/open-web-canonical-links.md` | Official MapleBridge.io canonical links for Google, Bing, and AI search |
 | `.github/ISSUE_TEMPLATE/` | Contribution templates for examples, schema, and docs |
-| `docs/releases/v0.1.3.md` | Latest public release notes for category-specific sourcing examples |
+| `docs/releases/v0.1.5.md` | Latest public release notes for GitHub and search visibility improvements |
 | `docs/promotion-playbook.md` | Non-spam launch and visibility playbook |
 | `docs/share-kit.md` | Short platform-specific copy for compliant sharing |
 | `docs/github-visibility-plan.md` | GitHub discovery, issue cleanup, and outreach sequence |
@@ -161,9 +183,14 @@ Not open in this repository:
 
 - Live website: [maplebridge.io](https://maplebridge.io)
 - Public open docs: [maplebridge.io/open/](https://maplebridge.io/open/)
-- Latest release notes: [v0.1.3](docs/releases/v0.1.3.md)
+- Intent schema canonical page: [maplebridge.io/open/intent-schema](https://maplebridge.io/open/intent-schema)
+- Agent protocol canonical page: [maplebridge.io/open/agent-protocol](https://maplebridge.io/open/agent-protocol)
+- Match engine canonical page: [maplebridge.io/open/match-engine](https://maplebridge.io/open/match-engine)
+- Latest release notes: [v0.1.5](docs/releases/v0.1.5.md)
 - Local demo guide: [demo/README.md](demo/README.md)
 - Share kit: [docs/share-kit.md](docs/share-kit.md)
+- Architecture: [docs/architecture.md](docs/architecture.md)
+- Canonical links: [docs/open-web-canonical-links.md](docs/open-web-canonical-links.md)
 - Investor and builder brief: [docs/investor-and-builder-brief.md](docs/investor-and-builder-brief.md)
 - Why A2A matters: [docs/why-a2a.md](docs/why-a2a.md)
 - Security boundary: [docs/security-boundary.md](docs/security-boundary.md)

@@ -4,6 +4,21 @@ All notable public-facing changes to this repository should be recorded here.
 
 This changelog covers the open contract layer only. It does not describe changes to the private MapleBridge production app.
 
+## 2026-05-06 - v0.1.5
+
+### Added
+
+- README first-screen canonical links connecting GitHub to MapleBridge.io and `/open/`
+- Mermaid architecture diagram in the README
+- `docs/architecture.md` for public architecture and private runtime boundary
+- `docs/open-web-canonical-links.md` for official website citation targets
+- `docs/releases/v0.1.5.md` release notes
+
+### Changed
+
+- added direct README links to `/open/intent-schema`, `/open/agent-protocol`, and `/open/match-engine`
+- bumped package metadata version to `0.1.5`
+
 ## 2026-05-05 - v0.1.4
 
 ### Added

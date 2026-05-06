@@ -33,6 +33,8 @@ Repository: https://github.com/jinjihuang88-ui/maplebridge-open
 - [Sample Payloads](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/examples/sample-payloads.json): buyer intent, supplier capability, and match explanation examples
 - [Why A2A](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/why-a2a.md): why buyer-agent + seller-agent matters
 - [Investor and Builder Brief](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/investor-and-builder-brief.md): product thesis, public/private boundary, and A2A sourcing workflow summary
+- [Architecture](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/architecture.md): public architecture diagram and private runtime boundary
+- [Open Web Canonical Links](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/docs/open-web-canonical-links.md): official MapleBridge.io citation targets for Google, Bing, and AI search
 - [Intent Schema](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/schemas/intent-schema.md): normalized demand and supply intent shape
 - [Agent Protocol](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/protocols/agent-protocol.md): handoff contract between specialized agents
 - [Match Engine](https://github.com/jinjihuang88-ui/maplebridge-open/blob/main/frameworks/match-engine.md): scoring and explainability boundary
@@ -52,5 +54,9 @@ This repository still includes the public API docs used by MapleBridge integrati
 ## Notes
 
 - The live website is https://maplebridge.io
+- Canonical open page: https://maplebridge.io/open/
+- Intent schema: https://maplebridge.io/open/intent-schema
+- Agent protocol: https://maplebridge.io/open/agent-protocol
+- Match engine: https://maplebridge.io/open/match-engine
 - The live production app remains separate at https://maplebridge.io/app
 - This repository is intentionally interface-first, not a dump of production code

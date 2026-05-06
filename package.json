@@ -1,6 +1,6 @@
 {
   "name": "maplebridge-open",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "description": "Public protocol examples for AI-assisted China sourcing, supplier matching, buyer intent, and small-MOQ procurement workflows.",
   "scripts": {
