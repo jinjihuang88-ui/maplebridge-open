@@ -59,8 +59,8 @@ Main links:
 - [x] Remove the README Mermaid diagram.
 - [x] Open current good-first issues for match explanations, connector input, and schema migration notes.
 - [x] Update the README good-first issue links.
-- [ ] Add a short redirect note to `maplebridge-a2a-protocol-spec` so it points readers to `maplebridge-open` as the main public repo.
-- [ ] Rewrite `jiayi-ai-assistant` README as a private workspace / historical app repo note, or make the repository private.
+- [x] Add a short redirect note to `maplebridge-a2a-protocol-spec` so it points readers to `maplebridge-open` as the main public repo.
+- [x] Rewrite `jiayi-ai-assistant` README as a private workspace / historical app repo note, or make the repository private.
 - [ ] Use `docs/share-kit.md` for platform-specific drafts, editing each one before posting.
 - [ ] Review GitHub traffic every 14 days and compare human views, referrers, stars, forks, and issues.
 
