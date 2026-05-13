@@ -61,6 +61,7 @@ Main links:
 - [x] Update the README good-first issue links.
 - [x] Add a short redirect note to `maplebridge-a2a-protocol-spec` so it points readers to `maplebridge-open` as the main public repo.
 - [x] Rewrite `jiayi-ai-assistant` README as a private workspace / historical app repo note, or make the repository private.
+- [ ] Review tracked environment/config files in `jiayi-ai-assistant`, rotate any exposed credentials, then decide whether the repo should be private.
 - [ ] Use `docs/share-kit.md` for platform-specific drafts, editing each one before posting.
 - [ ] Review GitHub traffic every 14 days and compare human views, referrers, stars, forks, and issues.
 
