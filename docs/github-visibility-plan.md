@@ -7,7 +7,8 @@ This document keeps MapleBridge Open promotion focused on useful developer and s
 - Repository: https://github.com/jinjihuang88-ui/maplebridge-open
 - Website: https://maplebridge.io
 - Open docs: https://maplebridge.io/open/
-- Release: https://github.com/jinjihuang88-ui/maplebridge-open/releases/tag/v0.1.1
+- Latest release: https://github.com/jinjihuang88-ui/maplebridge-open/releases/tag/v0.1.5
+- Promotion checklist: [promotion-checklist.md](promotion-checklist.md)
 
 ## Why People Are Not Seeing It Yet
 
@@ -15,80 +16,32 @@ The repository is still new and has limited external signals. GitHub discovery u
 
 The strongest visibility improvements are:
 
-- Keep the README specific to one problem: AI-assisted China sourcing for North American buyers.
+- Keep the README specific to one problem: structuring China-sourcing requests before supplier matching.
 - Show a demo in one command so developers can understand the workflow quickly.
 - Use searchable topics such as `china-sourcing`, `supplier-matching`, `procurement-ai`, and `supply-chain-ai`.
 - Keep releases active so GitHub and external crawlers see fresh updates.
 - Create small contribution tasks that are easy for outsiders to understand.
 - Link the repository from relevant, non-spam external posts only when the context fits.
 
-## Issue Body Fixes
+## Current Good-First Issues
 
-If GitHub issue editing is available, replace template issue bodies with the following more useful briefs.
+Keep README links pointed to current open tasks:
 
-### Issue 11: Buyer Intent Example
+- [#17 Add one end-to-end match explanation for a real sourcing case](https://github.com/jinjihuang88-ui/maplebridge-open/issues/17)
+- [#18 Add a simple CSV or webhook connector example](https://github.com/jinjihuang88-ui/maplebridge-open/issues/18)
+- [#19 Add schema migration notes for future versions](https://github.com/jinjihuang88-ui/maplebridge-open/issues/19)
 
-```markdown
-## What should be improved?
-
-Add one buyer intent example for a real sourcing category, such as packaging, drinkware, electronics accessories, pet products, apparel, or home goods.
-
-## Suggested area
-
-- [x] Buyer intent example
-- [ ] Supplier capability example
-- [ ] Match explanation
-- [ ] Connector boundary
-- [ ] Documentation wording
-- [ ] Other
-
-## Why it helps
-
-Concrete buyer intent examples make the public contract easier to understand. They show how MapleBridge Open represents category, target market, MOQ, compliance needs, delivery constraints, and review state before supplier search begins.
-
-## Public boundary check
-
-- [x] This does not require production MapleBridge code.
-- [x] This does not include customer, buyer, or supplier private data.
-- [x] This does not expose private crawler, ranking, or credential details.
-```
-
-### Issue 12: Supplier Capability Examples
-
-```markdown
-## What should be improved?
-
-Add one or two supplier capability examples that show realistic Chinese manufacturer profiles, especially OEM, ODM, private label, or low-MOQ supply cases.
-
-## Suggested area
-
-- [ ] Buyer intent example
-- [x] Supplier capability example
-- [ ] Match explanation
-- [ ] Connector boundary
-- [ ] Documentation wording
-- [ ] Other
-
-## Why it helps
-
-Supplier examples make the matching contract more practical. They help readers understand how MapleBridge Open represents MOQ, compliance, export market fit, channel support, and review state without exposing real supplier records.
-
-## Public boundary check
-
-- [x] This does not require production MapleBridge code.
-- [x] This does not include customer, buyer, or supplier private data.
-- [x] This does not expose private crawler, ranking, or credential details.
-```
+When an issue is completed, replace it with a new small task before updating README links.
 
 ## Outreach Sequence
 
 Use this order to avoid duplicate or platform-risky promotion:
 
-1. GitHub release note: already published as a concrete project update.
+1. Keep GitHub README and issues current.
 2. LinkedIn founder note: explain the sourcing-brief problem and link once.
-3. Product Hunt update: share only as a product update, not a repeated launch.
-4. Quora answers: answer specific sourcing questions first; link only when the repository is directly useful.
-5. Reddit replies: avoid top-level promotion unless the subreddit allows show-and-tell posts.
+3. DEV or Hashnode technical note: show schema, demo, and matching boundary.
+4. Product Hunt update: share only when there is a real product or open-source update.
+5. Quora, Reddit, Zhihu, CSDN, OSChina, and Juejin replies: answer specific questions first; link only when the repo or product directly helps.
 6. GitHub Discussions or issues: ask for schema feedback, not generic stars.
 
 ## Short Human-Sounding Share Copy

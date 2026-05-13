@@ -1,47 +1,57 @@
 # Promotion Playbook
 
-This playbook keeps MapleBridge Open promotion useful, specific, and compliant with platform norms. The goal is to earn attention by showing a real sourcing workflow, not by dropping links.
+This playbook keeps MapleBridge and MapleBridge Open promotion useful, specific, and compliant with platform norms. The goal is to earn attention by showing a real sourcing workflow, not by dropping links.
 
 ## Positioning
 
-Short version:
+Product version:
+
+> MapleBridge helps North American buyers turn unclear sourcing requests into structured supplier-matching conversations with Chinese manufacturers.
+
+Open-source version:
 
 > MapleBridge Open is a public protocol layer for AI-assisted China sourcing: buyer intent, supplier capability, and match explanations for North American buyers.
 
 Use this when the audience is technical:
 
-> We are making the contract layer public: normalized buyer intents, supplier capability profiles, match scoring dimensions, and review handoff boundaries.
+> MapleBridge Open makes the contract layer public: normalized buyer intents, supplier capability profiles, match scoring dimensions, and review handoff boundaries.
 
 Use this when the audience is buyers:
 
-> Most sourcing failures start before supplier search. The brief is unclear. MapleBridge Open shows how we structure the brief before matching.
+> Most sourcing failures start before supplier search. The brief is unclear. MapleBridge helps structure the brief before matching.
 
 ## Where To Share
 
 | Platform | Best Format | Link Behavior |
 | --- | --- | --- |
-| LinkedIn | Founder note with one lesson from building | One link at the end |
+| LinkedIn | Founder note with one lesson from building | Link to MapleBridge or MapleBridge Open, not both every time |
 | DEV Community | Technical write-up about schema and matching | Link to repo and docs |
-| Product Hunt | Product update, not a repeated launch | Link to GitHub as update |
+| Product Hunt | Product update, not a repeated launch | Link to GitHub as update when the open repo is the update |
 | Reddit | Reply only when directly relevant | Avoid top-level promotional posts |
 | Quora | Answer sourcing questions with practical advice | Link only if it truly helps |
 | GitHub Discussions | Ask for schema feedback | No marketing tone |
 
 Use [share-kit.md](share-kit.md) for short drafts. Edit the wording before posting so each platform gets a natural version.
 
-## LinkedIn Draft
+## LinkedIn Product Draft
 
-I have been working on MapleBridge from a simple sourcing problem: many North American buyers do not fail because there are no Chinese suppliers. They fail because supplier search starts before the buying brief is clear.
+I did not start MapleBridge because I wanted to build another sourcing platform.
 
-So I opened the protocol layer we use to think about the problem:
+The starting point was the frustration I kept seeing on both sides. Small buyers had to work through too much supplier information, and good factories often had to depend on rankings, ads, or luck to be discovered.
 
-- buyer intent
-- supplier capability
-- MOQ and compliance fit
-- match explanation
-- human review handoff
+The real signal is usually already inside the buyer's request: product category, market, MOQ, certification concerns, sample timing, packaging, and the parts that still need a human check.
 
-The repo is not our production app. It is the public contract layer for builders, buyers, and partners who want to understand the workflow.
+That is what I am building with MapleBridge: structure the sourcing conversation first, then match buyers and factories from facts instead of platform ranking alone.
+
+https://maplebridge.io
+
+## LinkedIn Open Draft
+
+I opened a small public layer behind MapleBridge.
+
+It is not the production marketplace code. It shows how I think about buyer intent, supplier capability, match explanations, and human review before introductions happen.
+
+The hard part in sourcing is often not "find more suppliers." It is turning a messy buying request into something both sides can actually work with.
 
 GitHub: https://github.com/jinjihuang88-ui/maplebridge-open
 

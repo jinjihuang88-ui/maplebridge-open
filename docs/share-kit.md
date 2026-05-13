@@ -1,26 +1,36 @@
 # Share Kit
 
-Use these short drafts when sharing MapleBridge Open. Keep the context useful first and avoid posting the same wording repeatedly across platforms.
+Use these short drafts when sharing MapleBridge and MapleBridge Open. Keep the context useful first and avoid posting the same wording repeatedly across platforms.
 
 ## One-Line Positioning
 
-MapleBridge Open is a public protocol and demo repo for AI-assisted China sourcing: buyer intent, supplier capability, small-MOQ fit, match explanations, and human review handoffs.
+MapleBridge helps North American buyers turn unclear sourcing requests into structured supplier-matching conversations with Chinese manufacturers.
 
-## LinkedIn
+MapleBridge Open shows the public schema, examples, and demo behind buyer intent, supplier capability, match explanations, and human review handoffs.
 
-I opened the public protocol layer behind MapleBridge.
+## LinkedIn: MapleBridge
 
-The problem I keep seeing in China sourcing is simple: supplier search often starts before the buyer brief is clear.
+I did not start MapleBridge because I wanted to build another sourcing platform.
 
-This repo shows the open contract layer:
+The starting point was more personal: I kept seeing buyers and factories trapped by platform rules. Buyers had to dig through too much supplier information. Good factories often had to wait for rankings, ads, or luck.
 
-- buyer intent
-- supplier capability
-- MOQ and compliance fit
-- match explanation
-- human review handoff
+The more I looked at it, the more I felt the real starting point was not the supplier list. It was the buyer's request itself.
 
-It is not our production marketplace code. It is a small public protocol/demo repo for people building around procurement, B2B marketplaces, sourcing workflows, or AI agents.
+Even a messy request usually contains the matching logic: product category, market, MOQ, certification worries, sample timing, packaging, and the questions that still need a person to check.
+
+That is the direction I am building with MapleBridge: structure the sourcing conversation first, then match buyers and factories from facts instead of rankings alone.
+
+https://maplebridge.io
+
+## LinkedIn: MapleBridge Open
+
+I opened a small public layer behind MapleBridge.
+
+It is not the production marketplace code. It is a protocol and demo repo that shows how I think about buyer intent, supplier capability, match explanations, and human review before introductions happen.
+
+I am sharing it because the hard part in sourcing is often not "find more suppliers." It is turning a messy buying request into something both sides can actually work with.
+
+Useful if you build around procurement, B2B marketplaces, sourcing workflows, or agent tools.
 
 https://github.com/jinjihuang88-ui/maplebridge-open
 
@@ -28,7 +38,7 @@ https://github.com/jinjihuang88-ui/maplebridge-open
 
 Quick MapleBridge update: I opened the public protocol layer behind the sourcing workflow.
 
-It shows how buyer intent, supplier capability, MOQ/compliance fit, and human review handoff can be represented before supplier introductions happen.
+It shows how buyer intent, supplier capability, MOQ/compliance fit, and human review handoff can be represented before supplier introductions happen. The product is MapleBridge; the open repo is the public proof layer.
 
 Useful if you are building around procurement, B2B marketplaces, China sourcing, or AI agents.
 
@@ -48,7 +58,7 @@ The main thing I would check before looking for factories is whether the buying 
 
 ## GitHub README Or Directory Blurb
 
-Public protocol examples for AI-assisted China sourcing and supplier matching. Includes buyer intent, supplier capability, MOQ/compliance fit, match explanations, connector boundaries, and a local demo.
+Public examples for AI-assisted China sourcing and supplier matching. Includes buyer intent, supplier capability, MOQ/compliance fit, match explanations, connector boundaries, and a local demo.
 
 ## Do Not Use
 

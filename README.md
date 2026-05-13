@@ -6,31 +6,31 @@
 [![Builder Brief](https://img.shields.io/badge/brief-investor%20%26%20builder-0f766e.svg)](docs/investor-and-builder-brief.md)
 [![GitHub Stars](https://img.shields.io/github/stars/jinjihuang88-ui/maplebridge-open?style=social)](https://github.com/jinjihuang88-ui/maplebridge-open)
 
-MapleBridge Open is the public protocol and example repository behind MapleBridge.io's AI-to-AI supplier search workflow.
+MapleBridge Open is the public example layer behind MapleBridge's China-sourcing workflow.
 
-It shows how a North America buyer's sourcing brief becomes structured buyer intent, how Chinese supplier capability can be represented, and how an AI supplier matching layer can explain fit before a human introduction happens.
+MapleBridge is the product: it helps North American buyers turn unclear sourcing requests into structured supplier-matching conversations with Chinese manufacturers.
 
-Canonical website entity:
+MapleBridge Open is the proof layer: it shows the public schema, example payloads, connector boundaries, match explanations, and local demo. It is useful for developers, procurement-tool builders, sourcing operators, and partners who want to understand the method without seeing private production code.
 
-- Website: [https://maplebridge.io/](https://maplebridge.io/)
-- Open canonical page: [https://maplebridge.io/open/](https://maplebridge.io/open/)
+Canonical links:
+
+- Product website: [https://maplebridge.io/](https://maplebridge.io/)
+- Open docs: [https://maplebridge.io/open/](https://maplebridge.io/open/)
 - Open-source repository: [https://github.com/jinjihuang88-ui/maplebridge-open](https://github.com/jinjihuang88-ui/maplebridge-open)
 
-The use case is narrow on purpose: North American buyers looking for verified Chinese manufacturers, small-MOQ supplier options, OEM/ODM/private-label partners, and clearer alternatives to search-first sourcing workflows.
+The use case is intentionally narrow: North American buyers looking for verified Chinese manufacturers, small-MOQ supplier options, OEM/ODM/private-label partners, and clearer alternatives to search-first sourcing workflows.
+
+What the repo demonstrates:
+
+```text
+Buyer writes a messy sourcing brief
+  -> MapleBridge normalizes buyer intent
+  -> Supplier capability is represented in the same language
+  -> Match logic compares category, MOQ, compliance, market, packaging, and review risk
+  -> Human review decides whether introduction or follow-up should happen
+```
 
 This is not the production marketplace code. It is the open contract surface: buyer intent, supplier capability, matching signals, connector boundaries, and review handoffs.
-
-```mermaid
-flowchart LR
-  Buyer["Buyer sourcing brief"] --> BuyerAgent["Buyer AI normalizes intent"]
-  Supplier["Supplier capability profile"] --> SupplierAgent["Supplier AI normalizes capability"]
-  BuyerAgent --> Match["Match engine scores fit"]
-  SupplierAgent --> Match
-  Connectors["Crawler and partner connectors"] --> Match
-  Match --> Explain["Match explanation and review flags"]
-  Explain --> Review["Human review boundary"]
-  Review --> Intro["Introduction or follow-up request"]
-```
 
 ## Start Here
 
@@ -114,6 +114,7 @@ This repository shows a public version of that workflow:
 | `.github/ISSUE_TEMPLATE/` | Contribution templates for examples, schema, and docs |
 | `docs/releases/v0.1.5.md` | Latest public release notes for GitHub and search visibility improvements |
 | `docs/promotion-playbook.md` | Non-spam launch and visibility playbook |
+| `docs/promotion-checklist.md` | Split promotion checklist for MapleBridge product and MapleBridge Open |
 | `docs/share-kit.md` | Short platform-specific copy for compliant sharing |
 | `docs/github-visibility-plan.md` | GitHub discovery, issue cleanup, and outreach sequence |
 | `llms.txt` | AI crawler summary for LLM and answer-engine discovery |
@@ -189,6 +190,7 @@ Not open in this repository:
 - Latest release notes: [v0.1.5](docs/releases/v0.1.5.md)
 - Local demo guide: [demo/README.md](demo/README.md)
 - Share kit: [docs/share-kit.md](docs/share-kit.md)
+- Promotion checklist: [docs/promotion-checklist.md](docs/promotion-checklist.md)
 - Architecture: [docs/architecture.md](docs/architecture.md)
 - Canonical links: [docs/open-web-canonical-links.md](docs/open-web-canonical-links.md)
 - Investor and builder brief: [docs/investor-and-builder-brief.md](docs/investor-and-builder-brief.md)
@@ -210,7 +212,8 @@ Useful contributions are narrow and practical:
 
 Good first issues:
 
-- [Add one buyer intent example for a real sourcing category](https://github.com/jinjihuang88-ui/maplebridge-open/issues/11)
-- [Add supplier capability examples for OEM and low-MOQ cases](https://github.com/jinjihuang88-ui/maplebridge-open/issues/12)
+- [Add one end-to-end match explanation for a real sourcing case](https://github.com/jinjihuang88-ui/maplebridge-open/issues/17)
+- [Add a simple CSV or webhook connector example](https://github.com/jinjihuang88-ui/maplebridge-open/issues/18)
+- [Add schema migration notes for future versions](https://github.com/jinjihuang88-ui/maplebridge-open/issues/19)
 
 If this is useful, star the repo or open a small issue with the sourcing workflow you want represented.
